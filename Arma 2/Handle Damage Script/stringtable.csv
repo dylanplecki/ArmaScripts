@@ -1,0 +1,28 @@
+LANGUAGE,					English
+
+STR_PLAYER,					Player
+STR_ENABLE,					Enable
+STR_DISABLE,				Disable
+STR_ENABLED,				Enabled
+STR_DISABLED,				Disabled
+STR_SAVE,					Save
+STR_CLOSE,					Close
+
+STR_BODY_ALL,				Overall
+STR_BODY_HEAD,				Head
+STR_BODY_BODY,				Body
+STR_BODY_HANDS,				Hands
+STR_BODY_LEGS,				Legs
+
+STR_CM_HD_INTERACT,			UOTC Medical
+STR_CM_HD_INTERACT_EMPTY,	(No options)
+
+STR_HINTONHIT_NAME,			Player HintOnHit System
+STR_HINTONHIT_HIT,			HIT!
+STR_HINTONHIT_CHECK,		CHECK
+STR_HINTONHIT_DEAD,			Dead!
+STR_HINTONHIT_TIME,			Time
+STR_HINTONHIT_PDAM,			Player Damage
+STR_HINTONHIT_CHECKDAM,		Check Damage
+STR_HINTONHIT_SETDAM,		Set Damage
+STR_HINTONHIT_NOTETEXT,		Note: These are damage values so a value of 0% is full health and a value of 100% is full damage.

@@ -1,0 +1,10 @@
+/*******************************************************************************
+ *	Name:			Function-File Manifest
+ *	Description:	List of function-type files to be loaded at game start
+ *  Notes:			MACRO-BASED MANIFEST
+ *	Parameters:		N/A
+ *	Return value:	N/A
+ ******************************************************************************/
+
+PREPFUNC(checkAllowed);
+PREPFUNC(keyHandler);

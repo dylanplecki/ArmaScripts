@@ -1,0 +1,2340 @@
+//ndefs=196
+enum {
+	cmd_stay_back = 4,
+	cmd_move = 12,
+	cmd_fire = 27,
+	cmd_watch = 28,
+	cmd_reply_fail = 66,
+	cmd_report = 70,
+	cmd_radio_custom_2 = 89,
+	cmd_unit_10 = 107,
+	cmd_select_yellow = 116,
+	cmd_vehicle_4 = 120,
+	cmd_vehicle_10 = 126,
+	cmd_mp_channel_side = 131,
+	cmd_deselect_team_from_bar = 155,
+	cmd_take_backpack = 168,
+	OrdinalEnum = 173,
+	_windowborder = 1,
+	cmd_expect = 11,
+	cmd_watch_around = 29,
+	cmd_watch_auto = 30,
+	cmd_team_red = 45,
+	cmd_assign_blue = 52,
+	cmd_radio_hotel = 62,
+	cmd_radio_juliet = 64,
+	cmd_reply_injured = 80,
+	cmd_radio_custom_3 = 90,
+	cmd_unit_11 = 108,
+	cmd_vehicle_5 = 121,
+	cmd_vehicle_11 = 127,
+	cmd_hc_select_team_from_bar = 165,
+	cmd_stop = 10,
+	cmd_loose_form = 23,
+	cmd_stealth = 32,
+	cmd_team_yellow = 48,
+	cmd_radio_india = 63,
+	cmd_reply_ammo_low = 78,
+	cmd_radio_custom_4 = 91,
+	cmd_unit_12 = 109,
+	cmd_vehicle_6 = 122,
+	cmd_vehicle_12 = 128,
+	cmd_mp_channel_vehicle = 134,
+	cmd_disassemble_weapon = 170,
+	_yinit = 0,
+	cmd_aware = 34,
+	cmd_safe = 35,
+	cmd_healbleeding = 36,
+	cmd_support_done = 86,
+	cmd_radio_custom_5 = 92,
+	cmd_my_vehicle = 111,
+	cmd_select_main = 112,
+	cmd_vehicle_7 = 123,
+	cmd_conversation = 135,
+	cmd_stop_auto = 137,
+	cmd_join_all = 156,
+	cmd_switch_to_selected = 158,
+	cmd_form_stagcol = 14,
+	cmd_engage = 22,
+	cmd_heal = 37,
+	cmd_team_main = 44,
+	cmd_radio_bravo = 56,
+	cmd_reply_copy = 67,
+	cmd_radio_custom_6 = 93,
+	cmd_vehicle_8 = 124,
+	cmd_single_units = 129,
+	cmd_getin_auto = 139,
+	cmd_hold_fire_auto = 148,
+	cmd_radio_alpha = 55,
+	cmd_reply_done = 65,
+	cmd_reply_killed = 77,
+	cmd_radio_custom_7 = 94,
+	cmd_unit_1 = 98,
+	cmd_vehicle_9 = 125,
+	cmd_open_fire_auto = 147,
+	cmd_openparachute = 167,
+	cmd_getin = 0,
+	cmd_next_waypoint = 7,
+	cmd_pos_auto = 43,
+	cmd_reply_repeat = 68,
+	cmd_reply_one_less = 74,
+	cmd_support_refuel = 85,
+	cmd_radio_custom = 87,
+	cmd_radio_custom_8 = 95,
+	cmd_unit_2 = 99,
+	cmd_units_all = 110,
+	cmd_select_green = 114,
+	cmd_mp_channel_command = 132,
+	cmd_mp_channel_group = 133,
+	_hintsw = 25,
+	_hintsh = 4,
+	_tsheight = 38,
+	cmd_action = 2,
+	cmd_form_echleft = 16,
+	cmd_combat = 33,
+	cmd_repair_vehicle = 38,
+	cmd_team_green = 46,
+	cmd_assign_main = 49,
+	cmd_team_dissolve = 54,
+	cmd_reply_hit = 73,
+	cmd_reply_firenotready = 76,
+	cmd_support_ambulance = 82,
+	cmd_radio_custom_9 = 96,
+	cmd_unit_3 = 100,
+	cmd_select_red = 113,
+	cmd_rearm_auto = 140,
+	cmd_fire_at_position_auto = 142,
+	cmd_join_auto = 146,
+	_hintsx = 0,
+	cmd_form_wedge = 15,
+	cmd_assign_green = 51,
+	cmd_unit_4 = 101,
+	cmd_attack_auto = 141,
+	cmd_switch_to_leader = 157,
+	cmd_assemble_weapon = 169,
+	htnone = 0,
+	_hintsy = 0,
+	_windowheight = 90,
+	_availableitemsheight = 76,
+	cmd_join = 9,
+	cmd_form_diamond = 20,
+	cmd_keep_form = 24,
+	cmd_suppress = 39,
+	cmd_reply_under_fire = 72,
+	cmd_support_repair = 83,
+	cmd_support_rearm = 84,
+	cmd_unit_5 = 102,
+	_idc = 9000,
+	cmd_getout = 1,
+	cmd_flank_right = 6,
+	cmd_form_column = 13,
+	cmd_radio_foxtrot = 60,
+	cmd_reply_fuel_low = 79,
+	cmd_unit_6 = 103,
+	cmd_complex_command = 149,
+	cmd_select_unit_from_bar = 150,
+	cmd_notarget = 159,
+	cmd_hc_select_auto = 160,
+	cmd_hc_deselect_unit_from_bar = 164,
+	htmoveright = 3,
+	sptpercents = 1,
+	_xspacing = 0,
+	_tsy = 29,
+	cmd_form_vee = 18,
+	cmd_form_file = 21,
+	cmd_pos_up = 40,
+	cmd_pos_down = 42,
+	cmd_radio_echo = 59,
+	cmd_radio_golf = 61,
+	cmd_reply_fireready = 75,
+	cmd_unit_7 = 104,
+	cmd_mp_channel_global = 130,
+	cmd_select_vehicle_from_bar = 152,
+	cmd_deselect_vehicle_from_bar = 153,
+	cmd_hc_select_auto_add = 161,
+	htfade = 1,
+	htmoveleft = 2,
+	_xinit = 0,
+	_scale = 2,
+	cmd_hide = 8,
+	cmd_form_echright = 17,
+	cmd_hold_fire = 25,
+	cmd_assign_red = 50,
+	cmd_reply_engaging = 71,
+	cmd_unit_8 = 105,
+	cmd_select_blue = 115,
+	cmd_vehicle_1 = 117,
+	cmd_deselect_unit_from_bar = 151,
+	cmd_hc_deselect_auto = 162,
+	cmd_fire_auto = 172,
+	sptplain = 0,
+	_yspacing = 0,
+	cmd_flank_left = 5,
+	cmd_open_fire = 26,
+	cmd_team_blue = 47,
+	cmd_radio_custom_0 = 97,
+	cmd_unit_9 = 106,
+	cmd_vehicle_2 = 118,
+	cmd_select_auto = 143,
+	cmd_hc_select_unit_from_bar = 163,
+	cmd_hc_deselect_team_from_bar = 166,
+	cmd_engage_auto = 171,
+	_windowwidth = 130,
+	cmd_advance = 3,
+	cmd_form_line = 19,
+	cmd_watch_dir = 31,
+	cmd_pos_middle = 41,
+	cmd_assign_yellow = 53,
+	cmd_radio_charlie = 57,
+	cmd_radio_delta = 58,
+	cmd_reply_where_are_you = 69,
+	cmd_support_medic = 81,
+	cmd_radio_custom_1 = 88,
+	cmd_vehicle_3 = 119,
+	cmd_move_auto = 136,
+	cmd_watch_ctx = 138,
+	cmd_select_auto_add = 144,
+	cmd_deselect_auto = 145,
+	cmd_select_team_from_bar = 154
+};
+
+class DefaultFont
+{
+	font = "PuristaMedium";
+};
+class RscControlsGroup
+{
+	type = 15;
+	idc = -1;
+	x = 0;
+	y = 0;
+	w = 1;
+	h = 1;
+	shadow = 0;
+	style = 16;
+	class VScrollbar
+	{
+		width = 0.021;
+		autoScrollSpeed = -1;
+		autoScrollDelay = 5;
+		autoScrollRewind = 0;
+		shadow = 0;
+	};
+	class HScrollbar
+	{
+		height = 0.028;
+		shadow = 0;
+	};
+	class ScrollBar
+	{
+		color[] = {1,1,1,0.6};
+		colorActive[] = {1,1,1,1};
+		colorDisabled[] = {1,1,1,0.3};
+		thumb = "\A3\ui_f\data\gui\cfg\scrollbar\thumb_ca.paa";
+		arrowFull = "\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa";
+		arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa";
+		border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa";
+	};
+	class Controls{};
+};
+class RscControlsGroupNoScrollbars: RscControlsGroup
+{
+	class VScrollbar: VScrollbar
+	{
+		width = 0;
+	};
+	class HScrollbar: HScrollbar
+	{
+		height = 0;
+	};
+};
+class RscListNBox
+{
+	style = 16;
+	shadow = 0;
+	font = "PuristaMedium";
+	sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+	color[] = {0.95,0.95,0.95,1};
+	colorText[] = {1,1,1,1.0};
+	colorDisabled[] = {1,1,1,0.25};
+	colorScrollbar[] = {0.95,0.95,0.95,1};
+	colorSelect[] = {0,0,0,1};
+	colorSelect2[] = {0,0,0,1};
+	colorSelectBackground[] = {0.95,0.95,0.95,1};
+	colorSelectBackground2[] = {1,1,1,0.5};
+	period = 1.2;
+	class ScrollBar
+	{
+		color[] = {1,1,1,0.6};
+		colorActive[] = {1,1,1,1};
+		colorDisabled[] = {1,1,1,0.3};
+		thumb = "\A3\ui_f\data\gui\cfg\scrollbar\thumb_ca.paa";
+		arrowFull = "\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa";
+		arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa";
+		border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa";
+	};
+};
+class DefaultTextAttributes
+{
+	font = "PuristaMedium";
+	color = "#ffffff";
+	size = 1;
+	align = "left";
+	valign = "middle";
+	shadow = "true";
+	shadowOffset = 0.06;
+	shadowColor = "#80000000";
+	underline = "false";
+};
+class RscButtonImages
+{
+	class XBoxA
+	{
+		id = "0x00050000 + 0";
+		image = "\A3\ui_f\data\gui\cfg\ButtonImages\a_ca.paa";
+		size = 1.3333;
+	};
+	class XBoxB
+	{
+		id = "0x00050000 + 1";
+		image = "\A3\ui_f\data\gui\cfg\ButtonImages\b_ca.paa";
+		size = 1.3333;
+	};
+	class XBoxX
+	{
+		id = "0x00050000 + 2";
+		image = "\A3\ui_f\data\gui\cfg\ButtonImages\x_ca.paa";
+		size = 1.3333;
+	};
+	class XBoxY
+	{
+		id = "0x00050000 + 3";
+		image = "\A3\ui_f\data\gui\cfg\ButtonImages\y_ca.paa";
+		size = 1.3333;
+	};
+	class XBoxUp
+	{
+		id = "0x00050000 + 4";
+		image = "#(argb,8,8,3)color(0,1,0,1)";
+		size = 1.3333;
+	};
+	class XBoxDown
+	{
+		id = "0x00050000 + 5";
+		image = "#(argb,8,8,3)color(0,1,0,1)";
+		size = 1.3333;
+	};
+	class XBoxLeft
+	{
+		id = "0x00050000 + 6";
+		image = "#(argb,8,8,3)color(0,1,0,1)";
+		size = 1.3333;
+	};
+	class XBoxRight
+	{
+		id = "0x00050000 + 7";
+		image = "#(argb,8,8,3)color(0,1,0,1)";
+		size = 1.3333;
+	};
+	class XBoxStart
+	{
+		id = "0x00050000 + 8";
+		image = "\A3\ui_f\data\gui\cfg\ButtonImages\start_ca.paa";
+		size = 1.3333;
+	};
+	class XBoxBack
+	{
+		id = "0x00050000 + 9";
+		image = "#(argb,8,8,3)color(0.3,0.3,0.3,1)";
+		size = 1.3333;
+	};
+	class XBoxBlack
+	{
+		id = "0x00050000 + 10";
+		image = "#(argb,8,8,3)color(0,0,0,1)";
+		size = 1.3333;
+	};
+	class XBoxWhite
+	{
+		id = "0x00050000 + 11";
+		image = "#(argb,8,8,3)color(1,1,1,1)";
+		size = 1.3333;
+	};
+	class XBoxLeftBumper
+	{
+		id = "0x00050000 + 10";
+		image = "#(argb,8,8,3)color(0,0,1,1)";
+		size = 1.3333;
+	};
+	class XBoxRightBumper
+	{
+		id = "0x00050000 + 11";
+		image = "#(argb,8,8,3)color(1,0,0,1)";
+		size = 1.3333;
+	};
+	class XBoxLeftTrigger
+	{
+		id = "0x00050000 + 12";
+		image = "#(argb,8,8,3)color(0,1,0,1)";
+		size = 1.3333;
+	};
+	class XBoxRightTrigger
+	{
+		id = "0x00050000 + 13";
+		image = "#(argb,8,8,3)color(0,1,0,1)";
+		size = 1.3333;
+	};
+	class XBoxLeftThumb
+	{
+		id = "0x00050000 + 14";
+		image = "\A3\ui_f\data\gui\cfg\ButtonImages\rightthumb_ca.paa";
+		size = 1.3333;
+	};
+	class XBoxRightThumb
+	{
+		id = "0x00050000 + 15";
+		image = "";
+		size = 1.3333;
+	};
+	class XBoxLeftThumbXRight
+	{
+		id = "0x00050000 + 16";
+		image = "#(argb,8,8,3)color(0,1,0,1)";
+		size = 1.3333;
+	};
+	class XBoxLeftThumbYUp
+	{
+		id = "0x00050000 + 17";
+		image = "#(argb,8,8,3)color(0,1,0,1)";
+		size = 1.3333;
+	};
+	class XBoxRightThumbXRight
+	{
+		id = "0x00050000 + 16";
+		image = "#(argb,8,8,3)color(0,1,0,1)";
+		size = 1.3333;
+	};
+	class XBoxRightThumbYUp
+	{
+		id = "0x00050000 + 19";
+		image = "#(argb,8,8,3)color(0,1,0,1)";
+		size = 1.3333;
+	};
+	class XBoxLeftThumbXLeft
+	{
+		id = "0x00050000 + 20";
+		image = "#(argb,8,8,3)color(0,1,0,1)";
+		size = 1.3333;
+	};
+	class XBoxLeftThumbYDown
+	{
+		id = "0x00050000 + 21";
+		image = "#(argb,8,8,3)color(0,1,0,1)";
+		size = 1.3333;
+	};
+	class XBoxRightThumbXLeft
+	{
+		id = "0x00050000 + 22";
+		image = "#(argb,8,8,3)color(0,1,0,1)";
+		size = 1.3333;
+	};
+	class XBoxRightThumbYDown
+	{
+		id = "0x00050000 + 23";
+		image = "#(argb,8,8,3)color(0,1,0,1)";
+		size = 1.3333;
+	};
+};
+class RscText
+{
+	x = 0;
+	y = 0;
+	h = 0.037;
+	w = 0.3;
+	style = 0;
+	shadow = 1;
+	colorShadow[] = {0,0,0,0.5};
+	font = "PuristaMedium";
+	SizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+	colorText[] = {1,1,1,1.0};
+	colorBackground[] = {0,0,0,0};
+	linespacing = 1;
+};
+class RscLine: RscText
+{
+	idc = -1;
+	style = 176;
+	x = 0.17;
+	y = 0.48;
+	w = 0.66;
+	h = 0;
+	text = "";
+	colorBackground[] = {0,0,0,0};
+	colorText[] = {1,1,1,1.0};
+};
+class RscTree
+{
+	style = 2;
+	font = "PuristaMedium";
+	sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
+	expandedTexture = "A3\ui_f\data\gui\rsccommon\rsctree\expandedTexture_ca.paa";
+	hiddenTexture = "A3\ui_f\data\gui\rsccommon\rsctree\hiddenTexture_ca.paa";
+	rowHeight = 0.0439091;
+	color[] = {1,1,1,1};
+	colorSelect[] = {0.7,0.7,0.7,1};
+	colorBackground[] = {0,0,0,0};
+	colorSelectBackground[] = {0,0,0,0.5};
+	colorBorder[] = {0,0,0,0};
+	borderSize = 0;
+};
+class RscTitle: RscText
+{
+	style = 0;
+	sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+	colorText[] = {0.95,0.95,0.95,1};
+};
+class RscPicture
+{
+	shadow = 0;
+	colorText[] = {1,1,1,1};
+	x = 0;
+	y = 0;
+	w = 0.2;
+	h = 0.15;
+};
+class RscPictureKeepAspect: RscPicture
+{
+	style = "0x30 + 0x800";
+};
+class RscStructuredText
+{
+	x = 0;
+	y = 0;
+	h = 0.035;
+	w = 0.1;
+	text = "";
+	size = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+	colorText[] = {1,1,1,1.0};
+	shadow = 1;
+	class Attributes
+	{
+		font = "PuristaMedium";
+		color = "#ffffff";
+		align = "left";
+		shadow = 1;
+	};
+};
+class RscObject;
+class RscActiveText
+{
+	idc = -1;
+	x = 0;
+	y = 0;
+	h = 0.035;
+	w = 0.035;
+	font = "PuristaMedium";
+	shadow = 2;
+	sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+	color[] = {0,0,0,1};
+	colorText[] = {0,0,0,1};
+	colorActive[] = {0.3,0.4,0,1};
+};
+class RscButton
+{
+	style = 2;
+	x = 0;
+	y = 0;
+	w = 0.095589;
+	h = 0.039216;
+	shadow = 2;
+	font = "PuristaMedium";
+	sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+	colorText[] = {1,1,1,1.0};
+	colorDisabled[] = {0.4,0.4,0.4,1};
+	colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])",0.7};
+	colorBackgroundActive[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])",1};
+	colorBackgroundDisabled[] = {0.95,0.95,0.95,1};
+	offsetX = 0.003;
+	offsetY = 0.003;
+	offsetPressedX = 0.002;
+	offsetPressedY = 0.002;
+	colorFocused[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])",1};
+	colorShadow[] = {0,0,0,1};
+	colorBorder[] = {0,0,0,1};
+	borderSize = 0.0;
+	soundEnter[] = {"\A3\ui_f\data\sound\onover",0.09,1};
+	soundPush[] = {"\A3\ui_f\data\sound\new1",0.0,0};
+	soundClick[] = {"\A3\ui_f\data\sound\onclick",0.07,1};
+	soundEscape[] = {"\A3\ui_f\data\sound\onescape",0.09,1};
+};
+class RscButtonTextOnly: RscButton
+{
+	SizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
+	colorBackground[] = {1,1,1,0};
+	colorBackgroundActive[] = {1,1,1,0};
+	colorBackgroundDisabled[] = {1,1,1,0};
+	colorFocused[] = {1,1,1,0};
+	colorShadow[] = {1,1,1,0};
+	borderSize = 0.0;
+};
+class RscShortcutButton
+{
+	idc = -1;
+	style = 0;
+	default = 0;
+	shadow = 1;
+	w = 0.183825;
+	h = "(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+	color[] = {1,1,1,1.0};
+	color2[] = {0.95,0.95,0.95,1};
+	colorDisabled[] = {1,1,1,0.25};
+	colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])",1};
+	colorBackground2[] = {1,1,1,1};
+	animTextureDefault = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButton\normal_ca.paa";
+	animTextureNormal = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButton\normal_ca.paa";
+	animTextureDisabled = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButton\normal_ca.paa";
+	animTextureOver = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButton\over_ca.paa";
+	animTextureFocused = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButton\focus_ca.paa";
+	animTexturePressed = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButton\down_ca.paa";
+	periodFocus = 1.2;
+	periodOver = 0.8;
+	class HitZone
+	{
+		left = 0.0;
+		top = 0.0;
+		right = 0.0;
+		bottom = 0.0;
+	};
+	class ShortcutPos
+	{
+		left = 0;
+		top = "(			(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) - 		(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)) / 2";
+		w = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1) * (3/4)";
+		h = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+	};
+	class TextPos
+	{
+		left = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1) * (3/4)";
+		top = "(			(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) - 		(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)) / 2";
+		right = 0.005;
+		bottom = 0.0;
+	};
+	period = 0.4;
+	font = "PuristaMedium";
+	size = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+	sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+	text = "";
+	soundEnter[] = {"\A3\ui_f\data\sound\onover",0.09,1};
+	soundPush[] = {"\A3\ui_f\data\sound\new1",0.0,0};
+	soundClick[] = {"\A3\ui_f\data\sound\onclick",0.07,1};
+	soundEscape[] = {"\A3\ui_f\data\sound\onescape",0.09,1};
+	action = "";
+	class Attributes
+	{
+		font = "PuristaMedium";
+		color = "#E5E5E5";
+		align = "left";
+		shadow = "true";
+	};
+	class AttributesImage
+	{
+		font = "PuristaMedium";
+		color = "#E5E5E5";
+		align = "left";
+	};
+};
+class RscShortcutButtonMain: RscShortcutButton
+{
+	idc = -1;
+	style = 0;
+	default = 0;
+	w = 0.3137255;
+	h = 0.1045752;
+	color[] = {1,1,1,1.0};
+	colorDisabled[] = {1,1,1,0.25};
+	class HitZone
+	{
+		left = 0.0;
+		top = 0.0;
+		right = 0.0;
+		bottom = 0.0;
+	};
+	class ShortcutPos
+	{
+		left = 0.0145;
+		top = "(			(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) - 		(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1.2)) / 2";
+		w = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1.2) * (3/4)";
+		h = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1.2)";
+	};
+	class TextPos
+	{
+		left = "(		((safezoneW / safezoneH) min 1.2) / 32) * 1.5";
+		top = "(			(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)*2 - 		(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1.2)) / 2";
+		right = 0.005;
+		bottom = 0.0;
+	};
+	animTextureNormal = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButtonMain\normal_ca.paa";
+	animTextureDisabled = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButtonMain\disabled_ca.paa";
+	animTextureOver = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButtonMain\over_ca.paa";
+	animTextureFocused = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButtonMain\focus_ca.paa";
+	animTexturePressed = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButtonMain\down_ca.paa";
+	animTextureDefault = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButtonMain\normal_ca.paa";
+	period = 0.5;
+	font = "PuristaMedium";
+	size = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1.2)";
+	sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1.2)";
+	text = "";
+	soundEnter[] = {"\A3\ui_f\data\sound\onover",0.09,1};
+	soundPush[] = {"\A3\ui_f\data\sound\new1",0.0,0};
+	soundClick[] = {"\A3\ui_f\data\sound\onclick",0.07,1};
+	soundEscape[] = {"\A3\ui_f\data\sound\onescape",0.09,1};
+	action = "";
+	class Attributes
+	{
+		font = "PuristaMedium";
+		color = "#E5E5E5";
+		align = "left";
+		shadow = "false";
+	};
+	class AttributesImage
+	{
+		font = "PuristaMedium";
+		color = "#E5E5E5";
+		align = "false";
+	};
+};
+class RscButtonEditor: RscShortcutButton
+{
+	class ShortcutPos
+	{
+		left = 0;
+		top = 0;
+		w = 0;
+		h = 0;
+	};
+	class TextPos
+	{
+		left = 0;
+		top = "(			(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) - 		(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)) / 2";
+		right = 0;
+		bottom = 0;
+	};
+};
+class RscIGUIShortcutButton: RscShortcutButton
+{
+	w = 0.183825;
+	h = "0.0522876 * 	0.7";
+	style = 2;
+	class HitZone
+	{
+		left = 0.002;
+		top = "0.003 * 	0.7";
+		right = 0.002;
+		bottom = "0.016 * 	0.7";
+	};
+	class ShortcutPos
+	{
+		left = -0.006;
+		top = "-0.007 * 	0.7";
+		w = 0;
+		h = "0.0522876 * 	0.7";
+	};
+	class TextPos
+	{
+		left = 0.0;
+		top = "0.000 * 	0.7";
+		right = 0.0;
+		bottom = "0.016 * 	0.7";
+	};
+	class Attributes
+	{
+		font = "PuristaMedium";
+		color = "#E5E5E5";
+		align = "center";
+		shadow = "true";
+	};
+};
+class RscGearShortcutButton: RscShortcutButton
+{
+	w = 0.0392157;
+	h = 0.0522876;
+	style = 2;
+	color[] = {1,1,1,1};
+	color2[] = {1,1,1,0.85};
+	colorBackground[] = {1,1,1,1};
+	colorbackground2[] = {1,1,1,0.85};
+	colorDisabled[] = {1,1,1,0.4};
+	class HitZone
+	{
+		left = 0.0;
+		top = 0.0;
+		right = 0.0;
+		bottom = 0.0;
+	};
+	class ShortcutPos
+	{
+		left = -0.006;
+		top = -0.007;
+		w = 0.0392157;
+		h = 0.0522876;
+	};
+	class TextPos
+	{
+		left = 0.003;
+		top = 0.001;
+		right = 0.0;
+		bottom = 0.0;
+	};
+	sizeEx = 0.1;
+	animTextureNormal = "\A3\ui_f\data\GUI\RscCommon\RscGearShortcutButton\normal_ca.paa";
+	animTextureDisabled = "\A3\ui_f\data\GUI\RscCommon\RscGearShortcutButton\disabled_ca.paa";
+	animTextureOver = "\A3\ui_f\data\GUI\RscCommon\RscGearShortcutButton\over_ca.paa";
+	animTextureFocused = "\A3\ui_f\data\GUI\RscCommon\RscGearShortcutButton\focus_ca.paa";
+	animTexturePressed = "\A3\ui_f\data\GUI\RscCommon\RscGearShortcutButton\down_ca.paa";
+	animTextureDefault = "\A3\ui_f\data\GUI\RscCommon\RscGearShortcutButton\normal_ca.paa";
+	class Attributes
+	{
+		font = "PuristaMedium";
+		color = "#E5E5E5";
+		align = "center";
+		shadow = "false";
+	};
+};
+class RscButtonMenu: RscShortcutButton
+{
+	idc = -1;
+	type = 16;
+	style = "0x02 + 0xC0";
+	default = 0;
+	shadow = 0;
+	x = 0;
+	y = 0;
+	w = 0.095589;
+	h = 0.039216;
+	animTextureNormal = "#(argb,8,8,3)color(1,1,1,1)";
+	animTextureDisabled = "#(argb,8,8,3)color(1,1,1,1)";
+	animTextureOver = "#(argb,8,8,3)color(1,1,1,0.5)";
+	animTextureFocused = "#(argb,8,8,3)color(1,1,1,1)";
+	animTexturePressed = "#(argb,8,8,3)color(1,1,1,1)";
+	animTextureDefault = "#(argb,8,8,3)color(1,1,1,1)";
+	colorBackground[] = {0,0,0,0.8};
+	colorBackground2[] = {1,1,1,0.5};
+	color[] = {1,1,1,1};
+	color2[] = {1,1,1,1};
+	colorText[] = {1,1,1,1};
+	colorDisabled[] = {1,1,1,0.25};
+	period = 1.2;
+	periodFocus = 1.2;
+	periodOver = 1.2;
+	size = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+	sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+	class TextPos
+	{
+		left = "0.25 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+		top = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) - 		(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)) / 2";
+		right = 0.005;
+		bottom = 0.0;
+	};
+	class Attributes
+	{
+		font = "PuristaLight";
+		color = "#E5E5E5";
+		align = "left";
+		shadow = "false";
+	};
+	class ShortcutPos
+	{
+		left = "(6.25 * 			(			((safezoneW / safezoneH) min 1.2) / 40)) - 0.0225 - 0.005";
+		top = 0.005;
+		w = 0.0225;
+		h = 0.03;
+	};
+};
+class RscButtonMenuOK: RscButtonMenu
+{
+	idc = 1;
+	shortcuts[] = {"0x00050000 + 0",28,57,156};
+	default = 1;
+	text = "$STR_DISP_OK";
+};
+class RscButtonMenuCancel: RscButtonMenu
+{
+	idc = 2;
+	shortcuts[] = {"0x00050000 + 1"};
+	text = "$STR_DISP_CANCEL";
+};
+class RscCheckbox
+{
+	idc = -1;
+	type = 7;
+	style = 0;
+	x = "LINE_X(XVAL)";
+	y = "LINE_Y";
+	w = "LINE_W(WVAL)";
+	h = 0.029412;
+	colorText[] = {1,0,0,1};
+	color[] = {0,0,0,0};
+	colorBackground[] = {0,0,1,1};
+	colorTextSelect[] = {0,0.8,0,1};
+	colorSelectedBg[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])",1};
+	colorSelect[] = {0,0,0,1};
+	colorTextDisable[] = {0.4,0.4,0.4,1};
+	colorDisable[] = {0.4,0.4,0.4,1};
+	font = "PuristaMedium";
+	sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
+	rows = 1;
+	columns = 1;
+	strings[] = {"UNCHECKED"};
+	checked_strings[] = {"CHECKED"};
+};
+class RscProgress
+{
+	x = 0.344;
+	y = 0.619;
+	w = 0.3137255;
+	h = 0.0261438;
+	shadow = 2;
+	texture = "\A3\ui_f\data\GUI\RscCommon\RscProgress\progressbar_ca.paa";
+	colorFrame[] = {0,0,0,0};
+	colorBar[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])","(profilenamespace getvariable ['GUI_BCG_RGB_A',0.7])"};
+};
+class RscProgressNotFreeze{};
+class RscLoadingText: RscText
+{
+	style = 2;
+	x = 0.29412;
+	y = 0.666672;
+	w = 0.411768;
+	h = 0.039216;
+	sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+	colorText[] = {1,1,1,1.0};
+};
+class RscListBox
+{
+	style = 16;
+	font = "PuristaMedium";
+	sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+	shadow = 0;
+	colorShadow[] = {0,0,0,0.5};
+	color[] = {1,1,1,1};
+	colorText[] = {1,1,1,1.0};
+	colorDisabled[] = {1,1,1,0.25};
+	colorScrollbar[] = {1,0,0,0};
+	colorSelect[] = {0,0,0,1};
+	colorSelect2[] = {0,0,0,1};
+	colorSelectBackground[] = {0.95,0.95,0.95,1};
+	colorSelectBackground2[] = {1,1,1,0.5};
+	period = 1.2;
+	colorBackground[] = {0,0,0,0.3};
+	maxHistoryDelay = 1.0;
+	autoScrollSpeed = -1;
+	autoScrollDelay = 5;
+	autoScrollRewind = 0;
+	class ScrollBar
+	{
+		color[] = {1,1,1,0.6};
+		colorActive[] = {1,1,1,1};
+		colorDisabled[] = {1,1,1,0.3};
+		thumb = "\A3\ui_f\data\gui\cfg\scrollbar\thumb_ca.paa";
+		arrowFull = "\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa";
+		arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa";
+		border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa";
+	};
+};
+class RscListBoxKeys: RscListBox
+{
+	collisionColor[] = {1,0,0,1};
+	disabledKeyColor[] = {1,1,1,0.5};
+};
+class RscIGUIListBox: RscListBox
+{
+	color[] = {1,1,1,1};
+	colorText[] = {1,1,1,1.0};
+	colorScrollbar[] = {0.95,0.95,0.95,1};
+	colorSelect[] = {0.95,0.95,0.95,1};
+	colorSelect2[] = {0.95,0.95,0.95,1};
+	colorSelectBackground[] = {0,0,0,0.4};
+	colorSelectBackground2[] = {0,0,0,1};
+	period = 0;
+	colorBackground[] = {0,0,0,0};
+	sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
+	class ScrollBar
+	{
+		color[] = {1,1,1,0.6};
+		colorActive[] = {1,1,1,1};
+		colorDisabled[] = {1,1,1,0.3};
+		thumb = "\A3\ui_f\data\gui\cfg\scrollbar\thumb_ca.paa";
+		arrowFull = "\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa";
+		arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa";
+		border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa";
+	};
+};
+class RscIGUIListNBox: RscListNBox
+{
+	style = "0 + 0x10";
+	shadow = 2;
+	color[] = {1,1,1,1};
+	colorText[] = {1,1,1,0.75};
+	colorScrollbar[] = {0.95,0.95,0.95,1};
+	colorSelect[] = {0.95,0.95,0.95,1};
+	colorSelect2[] = {0.95,0.95,0.95,1};
+	colorSelectBackground[] = {1,1,1,1.0};
+	colorSelectBackground2[] = {1,1,1,1.0};
+	period = 0;
+	colorBackground[] = {0,0,0,1};
+	columns[] = {0.1,0.7,0.1,0.1};
+	class ScrollBar
+	{
+		color[] = {1,1,1,0.6};
+		colorActive[] = {1,1,1,1};
+		colorDisabled[] = {1,1,1,0.3};
+		thumb = "\A3\ui_f\data\gui\cfg\scrollbar\thumb_ca.paa";
+		arrowFull = "\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa";
+		arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa";
+		border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa";
+	};
+};
+class RscEdit
+{
+	style = "0x00 + 0x40";
+	font = "PuristaMedium";
+	shadow = 2;
+	sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+	colorBackground[] = {0,0,0,1};
+	colorText[] = {0.95,0.95,0.95,1};
+	colorDisabled[] = {1,1,1,0.25};
+	colorSelection[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])",1};
+	canModify = 1;
+};
+class RscSlider
+{
+	h = 0.025;
+	color[] = {1,1,1,0.8};
+	colorActive[] = {1,1,1,1};
+};
+class RscXSliderH
+{
+	style = "0x400	+ 0x10";
+	shadow = 2;
+	x = 0;
+	y = 0;
+	h = 0.029412;
+	w = 0.4;
+	color[] = {1,1,1,0.4};
+	colorActive[] = {1,1,1,1};
+	colorDisabled[] = {1,1,1,0.2};
+	arrowEmpty = "\A3\ui_f\data\gui\cfg\slider\arrowEmpty_ca.paa";
+	arrowFull = "\A3\ui_f\data\gui\cfg\slider\arrowFull_ca.paa";
+	border = "\A3\ui_f\data\gui\cfg\slider\border_ca.paa";
+	thumb = "\A3\ui_f\data\gui\cfg\slider\thumb_ca.paa";
+};
+class RscXListBox
+{
+	style = "0x400 + 0x02 +	0x10";
+	shadow = 2;
+	arrowEmpty = "\A3\ui_f\data\gui\cfg\slider\arrowEmpty_ca.paa";
+	arrowFull = "\A3\ui_f\data\gui\cfg\slider\arrowFull_ca.paa";
+	border = "\A3\ui_f\data\gui\cfg\slider\border_ca.paa";
+	w = 0.14706;
+	h = 0.039216;
+	colorSelect[] = {0.95,0.95,0.95,1};
+	colorText[] = {1,1,1,1.0};
+	colorDisabled[] = {1,1,1,0.25};
+	font = "PuristaMedium";
+	sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+	soundSelect[] = {"\A3\ui_f\data\sound\new1",0.0,0};
+};
+class RscFrame
+{
+	type = 0;
+	idc = -1;
+	style = 64;
+	shadow = 2;
+	colorBackground[] = {0,0,0,0};
+	colorText[] = {1,1,1,1};
+	font = "PuristaMedium";
+	sizeEx = 0.02;
+	text = "";
+};
+class RscBackground: RscText
+{
+	type = 0;
+	IDC = -1;
+	style = 512;
+	shadow = 0;
+	x = 0.0;
+	y = 0.0;
+	w = 1.0;
+	h = 1.0;
+	text = "";
+	ColorBackground[] = {0.48,0.5,0.35,1};
+	ColorText[] = {0.1,0.1,0.1,1};
+	font = "PuristaMedium";
+	SizeEx = 1;
+};
+class RscBackgroundStripeTop: RscText
+{
+	access = 0;
+	x = "safezoneX";
+	y = "safezoneY";
+	w = "safezoneW";
+	h = "0.125*safezoneH";
+	text = "";
+	colorBackground[] = {0.1,0.1,0.1,1};
+};
+class RscBackgroundStripeBottom: RscText
+{
+	x = "safezoneX";
+	y = "safezoneY + safezoneH - 0.125*safezoneH";
+	w = "safezoneW";
+	h = "0.125*safezoneH";
+	text = "";
+	colorBackground[] = {0.1,0.1,0.1,1};
+};
+class RscBackgroundGUI: RscText
+{
+	colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])","(profilenamespace getvariable ['GUI_BCG_RGB_A',0.7])"};
+	colorText[] = {1,1,1,1};
+	background = 1;
+};
+class RscBackgroundGUILeft: RscPicture
+{
+	text = "A3\ui_f\data\gui\rsccommon\rscbackgroundgui\gradient_left_gs.paa";
+	colorText[] = {1,1,1,0.3};
+	colorBackground[] = {0,0,0,0};
+	background = 1;
+};
+class RscBackgroundGUIRight: RscPicture
+{
+	text = "A3\ui_f\data\gui\rsccommon\rscbackgroundgui\gradient_right_gs.paa";
+	colorText[] = {0,0,0,0.4};
+	colorBackground[] = {0,0,0,0};
+	background = 1;
+};
+class RscBackgroundGUIBottom: RscPicture
+{
+	colorText[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])",0.8};
+	text = "A3\ui_f\data\gui\rsccommon\rscshortcutbutton\background_ca.paa";
+	align = "bottom";
+	background = 1;
+};
+class RscBackgroundGUITop: RscText
+{
+	colorBackground[] = {0,0,0,0.2};
+	align = "top";
+	moving = 1;
+	background = 1;
+};
+class RscBackgroundGUIDark: RscText
+{
+	colorBackground[] = {0,0,0,0.2};
+	background = 1;
+};
+class RscBackgroundLogo: RscPictureKeepAspect
+{
+	text = "\A3\Ui_f\data\IGUI\RscTitles\SplashArma3\arma3_splash_ca.paa";
+	align = "top";
+	background = 1;
+	x = "safezoneX + safezoneW - (9 * 			(		((safezoneW / safezoneH) min 1.2) / 32))";
+	y = "safezoneY - 2 * 			(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+	w = "(8 * 			(		((safezoneW / safezoneH) min 1.2) / 32))";
+	h = "(8 * 			(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20))";
+};
+class RscHTML
+{
+	colorText[] = {1,1,1,1.0};
+	colorBold[] = {1,1,1,1.0};
+	colorLink[] = {1,1,1,0.75};
+	colorLinkActive[] = {1,1,1,1.0};
+	sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+	prevPage = "\A3\ui_f\data\gui\rsccommon\rschtml\arrow_left_ca.paa";
+	nextPage = "\A3\ui_f\data\gui\rsccommon\rschtml\arrow_right_ca.paa";
+	shadow = 2;
+	class H1
+	{
+		font = "PuristaMedium";
+		fontBold = "PuristaSemibold";
+		sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1.2)";
+		align = "left";
+	};
+	class H2
+	{
+		font = "PuristaMedium";
+		fontBold = "PuristaSemibold";
+		sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+		align = "right";
+	};
+	class H3
+	{
+		font = "PuristaMedium";
+		fontBold = "PuristaSemibold";
+		sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+		align = "left";
+	};
+	class H4
+	{
+		font = "PuristaMedium";
+		fontBold = "PuristaSemibold";
+		sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+		align = "left";
+	};
+	class H5
+	{
+		font = "PuristaMedium";
+		fontBold = "PuristaSemibold";
+		sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+		align = "left";
+	};
+	class H6
+	{
+		font = "PuristaMedium";
+		fontBold = "PuristaSemibold";
+		sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+		align = "left";
+	};
+	class P
+	{
+		font = "PuristaMedium";
+		fontBold = "PuristaSemibold";
+		sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+		align = "left";
+	};
+};
+class RscHitZones
+{
+	x = 0;
+	y = 0;
+	w = 0.1;
+	h = 0.1;
+	xCount = 1;
+	yCount = 1;
+	xSpace = 0;
+	ySpace = 0;
+};
+class RscMapControl
+{
+	moveOnEdges = 1;
+	x = "SafeZoneXAbs";
+	y = "SafeZoneY + 1.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+	w = "SafeZoneWAbs";
+	h = "SafeZoneH - 1.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+	shadow = 0;
+	ptsPerSquareSea = 5;
+	ptsPerSquareTxt = 3;
+	ptsPerSquareCLn = 10;
+	ptsPerSquareExp = 10;
+	ptsPerSquareCost = 10;
+	ptsPerSquareFor = 9;
+	ptsPerSquareForEdge = 9;
+	ptsPerSquareRoad = 6;
+	ptsPerSquareObj = 9;
+	showCountourInterval = 0;
+	scaleMin = 0.001;
+	scaleMax = 1.0;
+	scaleDefault = 0.16;
+	maxSatelliteAlpha = 0.85;
+	alphaFadeStartScale = 0.35;
+	alphaFadeEndScale = 0.4;
+	colorBackground[] = {0.969,0.957,0.949,1.0};
+	colorSea[] = {0.467,0.631,0.851,0.5};
+	colorForest[] = {0.624,0.78,0.388,0.5};
+	colorForestBorder[] = {0.0,0.0,0.0,0.0};
+	colorRocks[] = {0.0,0.0,0.0,0.3};
+	colorRocksBorder[] = {0.0,0.0,0.0,0.0};
+	colorLevels[] = {0.286,0.177,0.094,0.5};
+	colorMainCountlines[] = {0.572,0.354,0.188,0.5};
+	colorCountlines[] = {0.572,0.354,0.188,0.25};
+	colorMainCountlinesWater[] = {0.491,0.577,0.702,0.6};
+	colorCountlinesWater[] = {0.491,0.577,0.702,0.3};
+	colorPowerLines[] = {0.1,0.1,0.1,1.0};
+	colorRailWay[] = {0.8,0.2,0.0,1.0};
+	colorNames[] = {0.1,0.1,0.1,0.9};
+	colorInactive[] = {1.0,1.0,1.0,0.5};
+	colorOutside[] = {0.0,0.0,0.0,1.0};
+	colorTracks[] = {0.84,0.76,0.65,0.15};
+	colorTracksFill[] = {0.84,0.76,0.65,1.0};
+	colorRoads[] = {0.7,0.7,0.7,1.0};
+	colorRoadsFill[] = {1.0,1.0,1.0,1.0};
+	colorMainRoads[] = {0.9,0.5,0.3,1.0};
+	colorMainRoadsFill[] = {1.0,0.6,0.4,1.0};
+	colorGrid[] = {0.1,0.1,0.1,0.6};
+	colorGridMap[] = {0.1,0.1,0.1,0.6};
+	fontLabel = "PuristaMedium";
+	sizeExLabel = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
+	fontGrid = "TahomaB";
+	sizeExGrid = 0.02;
+	fontUnits = "TahomaB";
+	sizeExUnits = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
+	fontNames = "PuristaMedium";
+	sizeExNames = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8) * 2";
+	fontInfo = "PuristaMedium";
+	sizeExInfo = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
+	fontLevel = "TahomaB";
+	sizeExLevel = 0.02;
+	text = "#(argb,8,8,3)color(1,1,1,1)";
+	class Legend
+	{
+		x = "SafeZoneX + 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+		y = "SafeZoneY + safezoneH - 4.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+		w = "10 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+		h = "3.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+		font = "PuristaMedium";
+		sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
+		colorBackground[] = {1,1,1,0.5};
+		color[] = {0,0,0,1};
+	};
+	class Task
+	{
+		icon = "\A3\ui_f\data\map\mapcontrol\taskIcon_CA.paa";
+		iconCreated = "\A3\ui_f\data\map\mapcontrol\taskIconCreated_CA.paa";
+		iconCanceled = "\A3\ui_f\data\map\mapcontrol\taskIconCanceled_CA.paa";
+		iconDone = "\A3\ui_f\data\map\mapcontrol\taskIconDone_CA.paa";
+		iconFailed = "\A3\ui_f\data\map\mapcontrol\taskIconFailed_CA.paa";
+		color[] = {"(profilenamespace getvariable ['IGUI_TEXT_RGB_R',0])","(profilenamespace getvariable ['IGUI_TEXT_RGB_G',1])","(profilenamespace getvariable ['IGUI_TEXT_RGB_B',1])","(profilenamespace getvariable ['IGUI_TEXT_RGB_A',0.8])"};
+		colorCreated[] = {1,1,1,1};
+		colorCanceled[] = {0.7,0.7,0.7,1};
+		colorDone[] = {0.7,1,0.3,1};
+		colorFailed[] = {1,0.3,0.2,1};
+		size = 27;
+		importance = 1;
+		coefMin = 1;
+		coefMax = 1;
+	};
+	class Waypoint
+	{
+		icon = "\A3\ui_f\data\map\mapcontrol\waypoint_ca.paa";
+		color[] = {0,0,0,1};
+	};
+	class WaypointCompleted
+	{
+		icon = "\A3\ui_f\data\map\mapcontrol\waypointCompleted_ca.paa";
+		color[] = {0,0,0,1};
+	};
+	class CustomMark
+	{
+		icon = "\A3\ui_f\data\map\mapcontrol\custommark_ca.paa";
+		size = 24;
+		importance = 1;
+		coefMin = 1;
+		coefMax = 1;
+		color[] = {0,0,0,1};
+	};
+	class Command
+	{
+		icon = "\A3\ui_f\data\map\mapcontrol\waypoint_ca.paa";
+		size = 18;
+		importance = 1;
+		coefMin = 1;
+		coefMax = 1;
+		color[] = {1,1,1,1};
+	};
+	class Bush
+	{
+		icon = "\A3\ui_f\data\map\mapcontrol\bush_ca.paa";
+		color[] = {0.45,0.64,0.33,0.4};
+		size = "14/2";
+		importance = "0.2 * 14 * 0.05 * 0.05";
+		coefMin = 0.25;
+		coefMax = 4;
+	};
+	class Rock
+	{
+		icon = "\A3\ui_f\data\map\mapcontrol\rock_ca.paa";
+		color[] = {0.1,0.1,0.1,0.8};
+		size = 12;
+		importance = "0.5 * 12 * 0.05";
+		coefMin = 0.25;
+		coefMax = 4;
+	};
+	class SmallTree
+	{
+		icon = "\A3\ui_f\data\map\mapcontrol\bush_ca.paa";
+		color[] = {0.45,0.64,0.33,0.4};
+		size = 12;
+		importance = "0.6 * 12 * 0.05";
+		coefMin = 0.25;
+		coefMax = 4;
+	};
+	class Tree
+	{
+		icon = "\A3\ui_f\data\map\mapcontrol\bush_ca.paa";
+		color[] = {0.45,0.64,0.33,0.4};
+		size = 12;
+		importance = "0.9 * 16 * 0.05";
+		coefMin = 0.25;
+		coefMax = 4;
+	};
+	class busstop
+	{
+		icon = "\A3\ui_f\data\map\mapcontrol\busstop_CA.paa";
+		size = 24;
+		importance = 1;
+		coefMin = 0.85;
+		coefMax = 1.0;
+		color[] = {1,1,1,1};
+	};
+	class fuelstation
+	{
+		icon = "\A3\ui_f\data\map\mapcontrol\fuelstation_CA.paa";
+		size = 24;
+		importance = 1;
+		coefMin = 0.85;
+		coefMax = 1.0;
+		color[] = {1,1,1,1};
+	};
+	class hospital
+	{
+		icon = "\A3\ui_f\data\map\mapcontrol\hospital_CA.paa";
+		size = 24;
+		importance = 1;
+		coefMin = 0.85;
+		coefMax = 1.0;
+		color[] = {1,1,1,1};
+	};
+	class church
+	{
+		icon = "\A3\ui_f\data\map\mapcontrol\church_CA.paa";
+		size = 24;
+		importance = 1;
+		coefMin = 0.85;
+		coefMax = 1.0;
+		color[] = {1,1,1,1};
+	};
+	class lighthouse
+	{
+		icon = "\A3\ui_f\data\map\mapcontrol\lighthouse_CA.paa";
+		size = 24;
+		importance = 1;
+		coefMin = 0.85;
+		coefMax = 1.0;
+		color[] = {1,1,1,1};
+	};
+	class power
+	{
+		icon = "\A3\ui_f\data\map\mapcontrol\power_CA.paa";
+		size = 24;
+		importance = 1;
+		coefMin = 0.85;
+		coefMax = 1.0;
+		color[] = {1,1,1,1};
+	};
+	class powersolar
+	{
+		icon = "\A3\ui_f\data\map\mapcontrol\powersolar_CA.paa";
+		size = 24;
+		importance = 1;
+		coefMin = 0.85;
+		coefMax = 1.0;
+		color[] = {1,1,1,1};
+	};
+	class powerwave
+	{
+		icon = "\A3\ui_f\data\map\mapcontrol\powerwave_CA.paa";
+		size = 24;
+		importance = 1;
+		coefMin = 0.85;
+		coefMax = 1.0;
+		color[] = {1,1,1,1};
+	};
+	class powerwind
+	{
+		icon = "\A3\ui_f\data\map\mapcontrol\powerwind_CA.paa";
+		size = 24;
+		importance = 1;
+		coefMin = 0.85;
+		coefMax = 1.0;
+		color[] = {1,1,1,1};
+	};
+	class quay
+	{
+		icon = "\A3\ui_f\data\map\mapcontrol\quay_CA.paa";
+		size = 24;
+		importance = 1;
+		coefMin = 0.85;
+		coefMax = 1.0;
+		color[] = {1,1,1,1};
+	};
+	class shipwreck
+	{
+		icon = "\A3\ui_f\data\map\mapcontrol\shipwreck_CA.paa";
+		size = 24;
+		importance = 1;
+		coefMin = 0.85;
+		coefMax = 1.0;
+		color[] = {1,1,1,1};
+	};
+	class transmitter
+	{
+		icon = "\A3\ui_f\data\map\mapcontrol\transmitter_CA.paa";
+		size = 24;
+		importance = 1;
+		coefMin = 0.85;
+		coefMax = 1.0;
+		color[] = {1,1,1,1};
+	};
+	class watertower
+	{
+		icon = "\A3\ui_f\data\map\mapcontrol\watertower_CA.paa";
+		size = 24;
+		importance = 1;
+		coefMin = 0.85;
+		coefMax = 1.0;
+		color[] = {1,1,1,1};
+	};
+	class Cross
+	{
+		icon = "\A3\ui_f\data\map\mapcontrol\Cross_CA.paa";
+		size = 24;
+		importance = 1;
+		coefMin = 0.85;
+		coefMax = 1.0;
+		color[] = {0,0,0,1};
+	};
+	class Chapel
+	{
+		icon = "\A3\ui_f\data\map\mapcontrol\Chapel_CA.paa";
+		size = 24;
+		importance = 1;
+		coefMin = 0.85;
+		coefMax = 1.0;
+		color[] = {0,0,0,1};
+	};
+	class Bunker
+	{
+		icon = "\A3\ui_f\data\map\mapcontrol\bunker_ca.paa";
+		size = 14;
+		importance = "1.5 * 14 * 0.05";
+		coefMin = 0.25;
+		coefMax = 4;
+		color[] = {0,0,0,1};
+	};
+	class Fortress
+	{
+		icon = "\A3\ui_f\data\map\mapcontrol\bunker_ca.paa";
+		size = 16;
+		importance = "2 * 16 * 0.05";
+		coefMin = 0.25;
+		coefMax = 4;
+		color[] = {0,0,0,1};
+	};
+	class Fountain
+	{
+		icon = "\A3\ui_f\data\map\mapcontrol\fountain_ca.paa";
+		size = 11;
+		importance = "1 * 12 * 0.05";
+		coefMin = 0.25;
+		coefMax = 4;
+		color[] = {0,0,0,1};
+	};
+	class Ruin
+	{
+		icon = "\A3\ui_f\data\map\mapcontrol\ruin_ca.paa";
+		size = 16;
+		importance = "1.2 * 16 * 0.05";
+		coefMin = 1;
+		coefMax = 4;
+		color[] = {0,0,0,1};
+	};
+	class Stack
+	{
+		icon = "\A3\ui_f\data\map\mapcontrol\stack_ca.paa";
+		size = 20;
+		importance = "2 * 16 * 0.05";
+		coefMin = 0.9;
+		coefMax = 4;
+		color[] = {0,0,0,1};
+	};
+	class Tourism
+	{
+		icon = "\A3\ui_f\data\map\mapcontrol\tourism_ca.paa";
+		size = 16;
+		importance = "1 * 16 * 0.05";
+		coefMin = 0.7;
+		coefMax = 4;
+		color[] = {0,0,0,1};
+	};
+	class ViewTower
+	{
+		icon = "\A3\ui_f\data\map\mapcontrol\viewtower_ca.paa";
+		size = 16;
+		importance = "2.5 * 16 * 0.05";
+		coefMin = 0.5;
+		coefMax = 4;
+		color[] = {0,0,0,1};
+	};
+};
+class RscMap
+{
+	access = 0;
+	class controls
+	{
+		class Map: RscMapControl
+		{
+			moveOnEdges = 0;
+			x = "SafeZoneXAbs";
+			y = "SafeZoneY";
+			w = "SafeZoneWAbs";
+			h = "SafeZoneH";
+		};
+	};
+};
+class RscCompass: RscObject
+{
+	model = "\A3\ui_f\objects\compass.p3d";
+	direction[] = {0,0.5,0.5};
+	up[] = {0,1,0};
+	positionBack[] = {0,-0.02,0.075};
+	scale = 0.44;
+};
+class RscWatch: RscObject
+{
+	model = "\A3\ui_f\objects\watch.p3d";
+};
+class RscObjectives
+{
+	done = "\A3\ui_f\data\map\diary\icons\taskSucceeded_ca.paa";
+	failed = "\A3\ui_f\data\map\diary\icons\taskFailed_ca.paa";
+	active = "\A3\ui_f\data\map\diary\icons\taskCreated_ca.paa";
+	cancled = "\A3\ui_f\data\map\diary\icons\taskCanceled_ca.paa";
+};
+class IGUIBack
+{
+	type = 0;
+	idc = 124;
+	style = 128;
+	text = "";
+	colorText[] = {0,0,0,0};
+	font = "PuristaMedium";
+	sizeEx = 0.0;
+	shadow = 0;
+	x = 0.1;
+	y = 0.1;
+	w = 0.1;
+	h = 0.1;
+	colorbackground[] = {"(profilenamespace getvariable ['IGUI_BCG_RGB_R',0])","(profilenamespace getvariable ['IGUI_BCG_RGB_G',1])","(profilenamespace getvariable ['IGUI_BCG_RGB_B',1])","(profilenamespace getvariable ['IGUI_BCG_RGB_A',0.8])"};
+};
+class CA_Mainback: RscPicture
+{
+	x = 0.35;
+	y = 0.8;
+	w = 0.3;
+	h = 0.2;
+	text = "#(argb,8,8,3)color(0,0,0,0.5)";
+	colorText[] = {"(profilenamespace getvariable ['IGUI_TEXT_RGB_R',0])","(profilenamespace getvariable ['IGUI_TEXT_RGB_G',1])","(profilenamespace getvariable ['IGUI_TEXT_RGB_B',1])","(profilenamespace getvariable ['IGUI_TEXT_RGB_A',0.8])"};
+};
+class CA_Back: CA_Mainback
+{
+	x = 0.29;
+	y = 0.38;
+	w = 0.56;
+	h = 0.57;
+	colorText[] = {"(profilenamespace getvariable ['IGUI_TEXT_RGB_R',0])","(profilenamespace getvariable ['IGUI_TEXT_RGB_G',1])","(profilenamespace getvariable ['IGUI_TEXT_RGB_B',1])","(profilenamespace getvariable ['IGUI_TEXT_RGB_A',0.8])"};
+	text = "#(argb,8,8,3)color(0,0,0,0.5)";
+};
+class CA_Title_Back: CA_Mainback
+{
+	x = 0.014706;
+	y = 0;
+	w = 0.950743;
+	h = 0.058824;
+	text = "#(argb,8,8,3)color(0,0,0,0)";
+	colorText[] = {0.95,0.95,0.95,1};
+};
+class CA_Black_Back: CA_Mainback
+{
+	x = "SafeZoneX - SafeZoneW";
+	y = "SafeZoneY - SafeZoneH";
+	w = "SafeZoneW * 4";
+	h = "SafeZoneH * 4";
+	text = "#(argb,8,8,3)color(0,0,0,1)";
+	colorText[] = {0,0,0,1};
+	color[] = {0,0,0,1};
+	colorBackground[] = {0,0,0,1};
+};
+class CA_Title: RscTitle{};
+class CA_Logo: RscPictureKeepAspect
+{
+	idc = 1220;
+	x = 0.638;
+	y = 0.333;
+	w = 0.25;
+	h = 0.08;
+	text = "#(argb,8,8,3)color(1,1,1,1)";
+};
+class CA_Logo_Small: CA_Logo
+{
+	w = 0.2;
+	h = 0.0666;
+};
+class CA_RscButton: RscButton
+{
+	idc = -1;
+	default = 0;
+	x = 0.843144;
+	y = 0.8;
+	w = 0.14706;
+	h = 0.039216;
+	borderSize = 0.009804;
+	color[] = {0,0,0,0};
+	colorActive[] = {0,0,0,0};
+};
+class CA_RscButton_dialog: CA_RscButton
+{
+	x = 0.823536;
+	y = 0.85;
+	w = 0.198531;
+	borderSize = 0;
+};
+class CA_Ok: RscActiveText
+{
+	idc = -1;
+	style = 48;
+	default = 0;
+	x = 0.85;
+	y = 0.8;
+	w = 0.15;
+	h = 0.035;
+	text = "#(argb,8,8,3)color(0,0,0,0)";
+	color[] = {0,0,0,0};
+	colorActive[] = {0,0,0,0};
+};
+class CA_Ok_image: RscText
+{
+	idc = -1;
+	x = 0.86;
+	y = 0.8;
+	w = 0.14;
+	h = 0.04;
+	text = "#(argb,8,8,3)color(1,1,1,0.9)";
+	style = 48;
+	colortext[] = {1,1,1,0.8};
+};
+class CA_Ok_image2: RscText
+{
+	idc = -1;
+	x = 0.85;
+	y = 0.8;
+	w = 0.01;
+	h = 0.04;
+	text = "#(argb,8,8,3)color(1,1,1,0.9)";
+	style = 48;
+	colortext[] = {0,0,0,0.8};
+};
+class CA_Ok_text: RscText
+{
+	sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
+	idc = -1;
+	x = 0.86;
+	y = 0.8;
+	w = 0.14;
+	h = 0.04;
+	style = 0;
+	colortext[] = {0,0,0,0.8};
+};
+class RscStandardDisplay
+{
+	movingEnable = 1;
+	enableSimulation = 1;
+	enableDisplay = 1;
+};
+class RscLineBreak{};
+class RscCombo
+{
+	style = 16;
+	x = 0;
+	y = 0;
+	w = 0.12;
+	h = 0.035;
+	shadow = 0;
+	colorSelect[] = {0,0,0,1};
+	colorText[] = {0.95,0.95,0.95,1};
+	colorBackground[] = {0,0,0,1};
+	colorSelectBackground[] = {1,1,1,0.7};
+	colorScrollbar[] = {1,0,0,1};
+	arrowEmpty = "\A3\ui_f\data\GUI\RscCommon\rsccombo\arrow_combo_ca.paa";
+	arrowFull = "\A3\ui_f\data\GUI\RscCommon\rsccombo\arrow_combo_active_ca.paa";
+	wholeHeight = 0.45;
+	color[] = {1,1,1,1};
+	colorActive[] = {1,0,0,1};
+	colorDisabled[] = {1,1,1,0.25};
+	font = "PuristaMedium";
+	sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+	class ScrollBar
+	{
+		color[] = {1,1,1,0.6};
+		colorActive[] = {1,1,1,1};
+		colorDisabled[] = {1,1,1,0.3};
+		thumb = "\A3\ui_f\data\gui\cfg\scrollbar\thumb_ca.paa";
+		arrowFull = "\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa";
+		arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa";
+		border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa";
+	};
+};
+class RscDisplayBackgroundStripes
+{
+	class Background1: RscBackgroundStripeTop{};
+	class Background2: RscBackgroundStripeBottom{};
+};
+class RscToolbox
+{
+	colorText[] = {0.95,0.95,0.95,1};
+	color[] = {0.95,0.95,0.95,1};
+	colorTextSelect[] = {0.95,0.95,0.95,1};
+	colorSelect[] = {0.95,0.95,0.95,1};
+	colorTextDisable[] = {0.4,0.4,0.4,1};
+	colorDisable[] = {0.4,0.4,0.4,1};
+	colorSelectedBg[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])",0.5};
+	font = "PuristaMedium";
+	sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
+};
+class RscVignette: RscPicture
+{
+	x = "safezoneXAbs";
+	y = "safezoneY";
+	w = "safezoneWAbs";
+	h = "safezoneH";
+	text = "\A3\ui_f\data\gui\rsccommon\rscvignette\vignette_gs.paa";
+	colortext[] = {0,0,0,0.3};
+};
+class RscMapControlTooltip: RscControlsGroupNoScrollbars
+{
+	idc = 2350;
+	x = -1;
+	y = -1;
+	w = 0;
+	h = 0;
+	class Controls
+	{
+		class Background: RscText
+		{
+			idc = 235000;
+			x = 1;
+			y = 1;
+			w = 1;
+			h = 1;
+			colorBackground[] = {0,0,0,1};
+		};
+		class InfoBackground: RscStructuredText
+		{
+			idc = 235001;
+			x = 0;
+			y = 0;
+			w = 1;
+			h = "(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {1,1,1,0.15};
+		};
+		class Info: RscStructuredText
+		{
+			idc = 235002;
+			x = 1;
+			y = 1;
+			w = 1;
+			h = 1;
+		};
+		class AssetsBackground: RscStructuredText
+		{
+			idc = 235003;
+			x = 1;
+			y = 1;
+			w = 1;
+			h = 1;
+			colorBackground[] = {0,0,0,1};
+		};
+		class Assets: RscStructuredText
+		{
+			idc = 235004;
+			x = 1;
+			y = 1;
+			w = 1;
+			h = 1;
+		};
+		class PictureBackground: RscText
+		{
+			idc = 235005;
+			x = 1;
+			y = 1;
+			w = 1;
+			h = 1;
+			colorBackground[] = {0,0,0,1};
+		};
+		class PictureX: RscPictureKeepAspect
+		{
+			idc = 235006;
+			x = -1;
+			y = -1;
+			w = 0;
+			h = 0;
+			autoplay = 1;
+			loops = 1;
+		};
+	};
+};
+class RscMapSignalBackground: RscText
+{
+	x = "12.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
+	y = "10 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+	w = "15.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+	h = "5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+	colorBackground[] = {0.1,0.1,0.1,0.8};
+};
+class RscMapSignalPicture: RscPicture
+{
+	colorText[] = {"(profilenamespace getvariable ['IGUI_WARNING_RGB_R',0.8])","(profilenamespace getvariable ['IGUI_WARNING_RGB_G',0.5])","(profilenamespace getvariable ['IGUI_WARNING_RGB_B',0.0])","(profilenamespace getvariable ['IGUI_WARNING_RGB_A',0.8])"};
+	text = "\A3\ui_f\data\map\diary\signal_ca.paa";
+	x = "19 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
+	y = "10.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+	w = "2 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+	h = "2 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+};
+class RscMapSignalText: RscText
+{
+	style = 2;
+	colorText[] = {"(profilenamespace getvariable ['IGUI_WARNING_RGB_R',0.8])","(profilenamespace getvariable ['IGUI_WARNING_RGB_G',0.5])","(profilenamespace getvariable ['IGUI_WARNING_RGB_B',0.0])","(profilenamespace getvariable ['IGUI_WARNING_RGB_A',0.8])"};
+	text = "$STR_A3_RscMapDisabled_signalText";
+	x = "13 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
+	y = "13.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+	w = "14.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+	h = "1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+	sizeEx = "0.8 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+};
+class RscMessageBox: RscControlsGroupNoScrollbars
+{
+	idc = 2351;
+	x = -1;
+	y = -1;
+	w = 0;
+	h = 0;
+	class Controls
+	{
+		class BcgCommonTop: RscBackgroundGUITop
+		{
+			idc = 235100;
+			x = 0;
+			y = 0;
+			w = "18.8 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])",1};
+		};
+		class BcgCommon: RscBackgroundGUI
+		{
+			idc = 235101;
+			x = 0;
+			y = "1.1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			w = "18.8 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "1.7 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {0,0,0,1};
+		};
+		class Text: RscStructuredText
+		{
+			idc = 235102;
+			x = "0.7 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+			y = "1.8 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			w = "17 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+		};
+		class BackgroundButtonOK: RscBackgroundGUI
+		{
+			idc = 235103;
+			x = 0;
+			y = "2.9 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			w = "6.2 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {0,0,0,1};
+		};
+		class BackgroundButtonMiddle: BackgroundButtonOK
+		{
+			idc = 235104;
+			x = "6.3 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+		};
+		class BackgroundButtonCancel: BackgroundButtonOK
+		{
+			idc = 235105;
+			x = "12.6 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+		};
+		class ButtonOK: RscButtonMenuOK
+		{
+			idc = 235106;
+			colorBackground[] = {0,0,0,1};
+			x = 0;
+			y = "2.9 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			w = "6.2 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+		};
+		class ButtonCancel: RscButtonMenuCancel
+		{
+			idc = 235107;
+			colorBackground[] = {0,0,0,1};
+			x = "12.6 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+			y = "2.9 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			w = "6.2 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+		};
+	};
+};
+class RscWIP: RscControlsGroup
+{
+	class VScrollbar: VScrollbar
+	{
+		width = 0;
+	};
+	class HScrollbar: HScrollbar
+	{
+		height = 0;
+	};
+	x = "safezoneX + safezoneW - 6.5 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+	y = "safezoneY + safezoneH - 5.3 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+	idc = 2300;
+	w = "6 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+	h = "5.3 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+	class controls
+	{
+		class WIP_Logo: RscPicture
+		{
+			idc = 1200;
+			text = "\A3\Ui_f\data\Logos\arma3_ingame_ca.paa";
+			x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+			y = "0 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			w = "6 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "3 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorText[] = {1,1,1,0.5};
+		};
+		class WIP_VersionText: RscText
+		{
+			style = 2;
+			shadow = 0;
+			idc = 1001;
+			text = "ALPHA";
+			x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+			y = "3 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			w = "6 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorText[] = {1,1,1,0.3};
+			colorBackground[] = {0.2,0.2,0.2,0.05};
+		};
+		class WIP_VersionNumber: RscText
+		{
+			style = 2;
+			shadow = 0;
+			idc = 1000;
+			x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+			y = "4 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			w = "6 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorText[] = {1,1,1,0.3};
+			colorBackground[] = {0.2,0.2,0.2,0.05};
+		};
+	};
+};
+class RscColorPicker: RscControlsGroupNoScrollbars
+{
+	idc = 2351;
+	x = -1;
+	y = -1;
+	w = 0;
+	h = 0;
+	class controls{};
+};
+class RscInterlacingScreen: RscPicture
+{
+	text = "a3\ui_f\data\igui\rsctitles\interlacing\interlacing_ca.paa";
+	x = "safeZoneX";
+	y = "safeZoneY";
+	w = "safeZoneW";
+	h = "safeZoneH";
+};
+class RscIGUIText: RscText
+{
+	sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
+	colorText[] = {"(profilenamespace getvariable ['IGUI_TEXT_RGB_R',0])","(profilenamespace getvariable ['IGUI_TEXT_RGB_G',1])","(profilenamespace getvariable ['IGUI_TEXT_RGB_B',1])","(profilenamespace getvariable ['IGUI_TEXT_RGB_A',0.8])"};
+	style = 0;
+};
+class RscOpticsText: RscText
+{
+	sizeEx = 0.048;
+	colorText[] = {0.95,0.95,0.95,1};
+	style = 0;
+	h = 0.048;
+};
+class RscOpticsValue: RscOpticsText
+{
+	fixedWidth = 1;
+};
+class RscIGUIValue: RscIGUIText
+{
+	sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
+	colorText[] = {"(profilenamespace getvariable ['IGUI_TEXT_RGB_R',0])","(profilenamespace getvariable ['IGUI_TEXT_RGB_G',1])","(profilenamespace getvariable ['IGUI_TEXT_RGB_B',1])","(profilenamespace getvariable ['IGUI_TEXT_RGB_A',0.8])"};
+	style = 0;
+};
+class RscIGProgress: RscProgress
+{
+	style = 1;
+	w = 0.009;
+	h = 0.178;
+	colorFrame[] = {0.706,0.098,0.9294,0};
+	colorBar[] = {"(profilenamespace getvariable ['IGUI_TEXT_RGB_R',0])","(profilenamespace getvariable ['IGUI_TEXT_RGB_G',1])","(profilenamespace getvariable ['IGUI_TEXT_RGB_B',1])","(profilenamespace getvariable ['IGUI_TEXT_RGB_A',0.8])"};
+	texture = "#(argb,8,8,3)color(1,1,1,1)";
+};
+class RscDisplayHintC
+{
+	idd = 57;
+	class controls
+	{
+		delete Hint;
+		class Background: RscText
+		{
+			x = 0.35;
+			y = 0.4;
+			w = 0.5;
+			h = 0.11;
+			colorBackground[] = {"(profilenamespace getvariable ['IGUI_BCG_RGB_R',0])","(profilenamespace getvariable ['IGUI_BCG_RGB_G',1])","(profilenamespace getvariable ['IGUI_BCG_RGB_B',1])","(profilenamespace getvariable ['IGUI_BCG_RGB_A',0.8])"};
+			colorText[] = {0,0,0,0};
+			font = "PuristaMedium";
+			sizeEx = 0.1;
+		};
+		class CA_Hint: RscIGUIText
+		{
+			idc = 102;
+			style = 16;
+			lineSpacing = 1;
+			sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
+			x = 0.36;
+			y = 0.41;
+			w = 0.48;
+			h = 0.035;
+			colorBackground[] = {0,0,0,0};
+			colorText[] = {"(profilenamespace getvariable ['IGUI_TEXT_RGB_R',0])","(profilenamespace getvariable ['IGUI_TEXT_RGB_G',1])","(profilenamespace getvariable ['IGUI_TEXT_RGB_B',1])","(profilenamespace getvariable ['IGUI_TEXT_RGB_A',0.8])"};
+		};
+		class continue: RscActiveText
+		{
+			sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
+			x = 0.55;
+			y = 0.46;
+			w = 0.3;
+			h = 0.035;
+			color[] = {0.8,0.8,0.8,1};
+			colorText[] = {"(profilenamespace getvariable ['IGUI_TEXT_RGB_R',0])","(profilenamespace getvariable ['IGUI_TEXT_RGB_G',1])","(profilenamespace getvariable ['IGUI_TEXT_RGB_B',1])","(profilenamespace getvariable ['IGUI_TEXT_RGB_A',0.8])"};
+			colorActive[] = {0.95,0.95,0.95,1};
+		};
+	};
+};
+class RscDisplayHintCEx
+{
+	idd = 72;
+	indent = "\A3\ui_f\data\igui\rscingameui\rschint\indent_gr.paa";
+	class controls
+	{
+		class Background: RscText
+		{
+			x = 0.15;
+			y = 0.4;
+			w = 0.7;
+			h = 0.155;
+			text = "";
+			colorBackground[] = {"(profilenamespace getvariable ['IGUI_BCG_RGB_R',0])","(profilenamespace getvariable ['IGUI_BCG_RGB_G',1])","(profilenamespace getvariable ['IGUI_BCG_RGB_B',1])","(profilenamespace getvariable ['IGUI_BCG_RGB_A',0.8])"};
+			colorText[] = {0,0,0,0};
+			font = "PuristaMedium";
+			sizeEx = 0.1;
+		};
+		class Title: RscText
+		{
+			style = 0;
+			x = 0.17;
+			y = 0.42;
+			w = 0.66;
+			h = 0.06;
+			text = "STR_DISP_ERROR";
+			colorText[] = {"(profilenamespace getvariable ['IGUI_TEXT_RGB_R',0])","(profilenamespace getvariable ['IGUI_TEXT_RGB_G',1])","(profilenamespace getvariable ['IGUI_TEXT_RGB_B',1])","(profilenamespace getvariable ['IGUI_TEXT_RGB_A',0.8])"};
+		};
+		class Line1: RscText
+		{
+			style = 176;
+			x = 0.17;
+			y = 0.48;
+			w = 0.66;
+			h = 0;
+			text = "";
+		};
+		class Hint: RscStructuredText
+		{
+			access = 0;
+			type = 13;
+			style = 0;
+			x = 0.17;
+			y = 0.48;
+			w = 0.66;
+			h = 1;
+			class Attributes
+			{
+				font = "PuristaMedium";
+				color = "#FFFFFF";
+				shadow = 0;
+			};
+		};
+		class Line2: RscText
+		{
+			style = 176;
+			x = 0.17;
+			y = 0.48;
+			w = 0.66;
+			h = 0;
+			text = "";
+			colorText[] = {"(profilenamespace getvariable ['IGUI_TEXT_RGB_R',0])","(profilenamespace getvariable ['IGUI_TEXT_RGB_G',1])","(profilenamespace getvariable ['IGUI_TEXT_RGB_B',1])","(profilenamespace getvariable ['IGUI_TEXT_RGB_A',0.8])"};
+			color[] = {0.95,0.95,0.95,1};
+		};
+		class continue: RscActiveText
+		{
+			x = 0.17;
+			y = 0.49;
+			w = 0.66;
+			h = 0.035;
+			SizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
+			color[] = {"(profilenamespace getvariable ['IGUI_TEXT_RGB_R',0])","(profilenamespace getvariable ['IGUI_TEXT_RGB_G',1])","(profilenamespace getvariable ['IGUI_TEXT_RGB_B',1])","(profilenamespace getvariable ['IGUI_TEXT_RGB_A',0.8])"};
+			colorActive[] = {0.95,0.95,0.95,1};
+			text = "$STR_DISP_HINTC_CONTINUE";
+		};
+	};
+};
+class RscDisplayChannel
+{
+	idd = 63;
+	class controls
+	{
+		delete Channel;
+		class CA_Channel: RscText
+		{
+			idc = 101;
+			style = 0;
+			x = "0.015 + SafeZoneX";
+			y = "(SafeZoneH + SafeZoneY) - 0.034";
+			w = 0.26;
+			colorBackground[] = {"(profilenamespace getvariable ['IGUI_BCG_RGB_R',0])","(profilenamespace getvariable ['IGUI_BCG_RGB_G',1])","(profilenamespace getvariable ['IGUI_BCG_RGB_B',1])","(profilenamespace getvariable ['IGUI_BCG_RGB_A',0.8])"};
+			sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
+		};
+		class Background: RscText
+		{
+			x = -10.0;
+			y = 0.8;
+			w = 0.25;
+			h = 0.05;
+		};
+		class Picture: RscPicture
+		{
+			idc = 102;
+			x = -10.01;
+			y = 0.72;
+			w = 0.03;
+			h = 0.05;
+		};
+	};
+};
+class RscDisplayVoiceChat
+{
+	class controls
+	{
+		class Background;
+		class Picture: RscPicture
+		{
+			text = "\A3\ui_f\data\igui\rscingameui\rscdisplayvoicechat\microphone_ca.paa";
+		};
+	};
+};
+class RscDisplayChat
+{
+	class controls
+	{
+		delete Line;
+		delete Background;
+		class CA_Background: RscText
+		{
+			x = "SafeZoneX + 0.26";
+			y = "(SafeZoneH + SafeZoneY) - 0.034";
+			w = "SafeZoneW - 0.26 - 0.015";
+			h = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
+			colorBackground[] = {0.6275,0.6275,0.6275,0.33};
+			colorText[] = {0,0,0,1};
+		};
+		class CA_Line: RscEdit
+		{
+			idc = 101;
+			x = "SafeZoneX + 0.26";
+			y = "(SafeZoneH + SafeZoneY) - 0.034";
+			w = "SafeZoneW - 0.26 - 0.015";
+			h = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
+			sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
+			text = "";
+			colorBackground[] = {0.6275,0.6275,0.6275,0.33};
+			colorText[] = {1,1,1,1};
+			autocomplete = "general";
+		};
+	};
+};
+class RscChatListDefault
+{
+	shadow = 1;
+	shadowPlayer = 0;
+	shadowColor[] = {0,0,0,0.5};
+	x = "1.2 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(SafezoneX)";
+	y = "17.2 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY) + 0.7*(safezoneH - 				(			((safezoneW / safezoneH) min 1.2) / 1.2))";
+	w = "(18.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)) + 0.45*(safezoneW - 				((safezoneW / safezoneH) min 1.2))";
+	h = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
+	font = "PuristaMedium";
+	size = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
+	rows = "((5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25))+ 0.3*(safezoneH - 				(			((safezoneW / safezoneH) min 1.2) / 1.2))) / 		(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
+	colorBackground[] = {0,0,0,0.3};
+	colorGlobalChannel[] = {"0.606*1.4","0.606*1.4","0.606*1.4",1};
+	colorGlobalChannelPlayerBackground[] = {"0.606*1.4","0.606*1.4","0.606*1.4",0.5};
+	colorGlobalChannelPlayerText[] = {0,0,0,1};
+	colorSideChannel[] = {"0.196*1.4","0.592*1.4","0.706*1.4",1};
+	colorSideChannelPlayerBackground[] = {"0.196*1.4","0.592*1.4","0.706*1.4",0.5};
+	colorSideChannelPlayerText[] = {0,0,0,1};
+	colorCommandChannel[] = {"0.8275*1.4","0.8196*1.4","0.1961*1.4",1};
+	colorCommandChannelPlayerBackground[] = {"0.8275*1.4","0.8196*1.4","0.1961*1.4",0.5};
+	colorCommandChannelPlayerText[] = {0,0,0,1};
+	colorGroupChannel[] = {0.709,0.972,0.384,1};
+	colorGroupChannelPlayerBackground[] = {0.709,0.972,0.384,0.5};
+	colorGroupChannelPlayerText[] = {0,0,0,1};
+	colorVehicleChannel[] = {"0.863*1.4","0.584*1.4","0.0*1.4",1};
+	colorVehicleChannelPlayerBackground[] = {"0.863*1.4","0.584*1.4","0.0*1.4",0.5};
+	colorVehicleChannelPlayerText[] = {0,0,0,1};
+	colorDirectChannel[] = {1,1,1,1};
+	colorDirectChannelPlayerBackground[] = {1,1,1,0.5};
+	colorDirectChannelPlayerText[] = {0,0,0,1};
+	colorPlayerChannel[] = {0.8,0.7,1,1};
+	colorPlayerChannelPlayerBackground[] = {0.8,0.7,1,0.5};
+	colorPlayerChannelPlayerText[] = {0,0,0,1};
+	colorMessage[] = {1,1,1,1};
+	colorMessageProtocol[] = {0.5,0.5,0.5,1};
+};
+class RscChatListMission: RscChatListDefault
+{
+	colorBackground[] = {0,0,0,0.3};
+	x = "(call compile (profilenamespace getvariable [""IGUI_GRID_CHAT_X"",str (		(safezoneX + 1 * 			(			((safezoneW / safezoneH) min 1.2) / 40)))]))";
+	y = "(call compile (profilenamespace getvariable [""IGUI_GRID_CHAT_Y"",str (		(safezoneY + safezoneH - 9 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)))]))";
+	w = "(call compile (profilenamespace getvariable [""IGUI_GRID_CHAT_W"",str (		(20 * 			(			((safezoneW / safezoneH) min 1.2) / 40)))]))";
+	h = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
+	rows = "(call compile (profilenamespace getvariable [""IGUI_GRID_CHAT_H"",str (		(5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)))])) / 		(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
+};
+class RscChatListBriefing: RscChatListDefault
+{
+	x = "1.2 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(SafezoneX)";
+	y = "14.8 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY)";
+	w = "(18.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)) + 0.45*(safezoneW - 				((safezoneW / safezoneH) min 1.2))";
+	h = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
+	rows = "(SafezoneH - (17.1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25))) / 		(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
+};
+class RscChatListMap: RscChatListDefault
+{
+	x = "1.2 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(SafezoneX)";
+	y = "14.8 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY)";
+	w = "(18.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)) + 0.45*(safezoneW - 				((safezoneW / safezoneH) min 1.2))";
+	h = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
+	rows = "(SafezoneH - (17.1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25))) / 		(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
+};
+class RscTitlesText
+{
+	fontBasic = "PuristaMedium";
+	sizeExBasic = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
+	fontDown = "PuristaMedium";
+	sizeExDown = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
+	offsetDown = "((		(call compile (profilenamespace getvariable [""IGUI_GRID_CHAT_Y"",str (		(safezoneY + safezoneH - 9 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)))])) + 3 * 		(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)) - 0.5)";
+};

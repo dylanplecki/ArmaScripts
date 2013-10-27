@@ -1,0 +1,463 @@
+#include "RscDefaults.defines"
+
+class RscDisplayDebugUO
+{
+	idd = 316001;
+	movingEnable = 1;
+	enableSimulation = 0;
+	onLoad = "[""onLoad"",_this,""RscDisplayDebugUO"",'GUI'] call compile preprocessfilelinenumbers ""x\uo\addons\debugger\scripts\initDisplay.sqf""";
+	onUnload = "[""onUnload"",_this,""RscDisplayDebugUO"",'GUI'] call compile preprocessfilelinenumbers ""x\uo\addons\debugger\scripts\initDisplay.sqf""";
+	class controlsBackground
+	{
+		class BcgWIP: RscWIP
+		{
+			idc = 11400;
+		};
+		class BcgCommon: RscBackgroundGUI
+		{
+			idc = 11000;
+			backgroundType = 0;
+			x = "1 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "30 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "18 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+		};
+		class BcgCommonLeft: RscBackgroundGUILeft
+		{
+			idc = 11200;
+			backgroundType = 0;
+			x = "1 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "30 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "18 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+		};
+		class BcgCommonRight: RscBackgroundGUIRight
+		{
+			idc = 11201;
+			backgroundType = 0;
+			x = "1 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "30 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "18 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+		};
+		class BcgCommonBottom: RscBackgroundGUIBottom
+		{
+			idc = 11001;
+			backgroundType = 0;
+			x = "1 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2) +  			18 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) 		 - (1 * 			(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20))";
+			w = "30 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 			(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+		};
+		class BcgCommonTop: RscBackgroundGUITop
+		{
+			idc = 11002;
+			backgroundType = 0;
+			x = "1 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "30 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 			(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+		};
+		class Background: RscText
+		{
+			idc = 1009;
+			x = "1 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "30 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "18 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+			colorBackground[] = {0,0,0,0.3};
+		};
+	};
+	class Controls
+	{
+		class CommandBackground1: RscPicture
+		{
+			idc = 1200;
+			text = "A3\ui_f\data\gui\rsccommon\rscshortcutbutton\background_ca.paa";
+			x = "1 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "11 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "30 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+			colorText[] = {1,1,1,0.5};
+		};
+		class CommandBackground2: CommandBackground1
+		{
+			idc = 1201;
+			text = "A3\ui_f\data\gui\rsccommon\rscshortcutbutton\background_ca.paa";
+			x = "1 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "13 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "30 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+			colorText[] = {1,1,1,0.5};
+		};
+		class CommandBackground3: CommandBackground1
+		{
+			idc = 1202;
+			text = "A3\ui_f\data\gui\rsccommon\rscshortcutbutton\background_ca.paa";
+			x = "1 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "12 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "30 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+			colorText[] = {1,1,1,0.5};
+		};
+		class CommandBackground4: CommandBackground1
+		{
+			idc = 1203;
+			text = "A3\ui_f\data\gui\rsccommon\rscshortcutbutton\background_ca.paa";
+			x = "1 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "14 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "30 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+			colorText[] = {1,1,1,0.5};
+		};
+		class CommandBackground5: CommandBackground1
+		{
+			idc = 1204;
+			text = "A3\ui_f\data\gui\rsccommon\rscshortcutbutton\background_ca.paa";
+			x = "1 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "15 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "30 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+			colorText[] = {1,1,1,0.5};
+		};
+		class CommandBackground6: CommandBackground1
+		{
+			idc = 1205;
+			text = "A3\ui_f\data\gui\rsccommon\rscshortcutbutton\background_ca.paa";
+			x = "1 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "16 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "30 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+			colorText[] = {1,1,1,0.5};
+		};
+		class ScriptBackground: CommandBackground1
+		{
+			idc = 1206;
+			text = "A3\ui_f\data\gui\rsccommon\rscshortcutbutton\background_ca.paa";
+			x = "1 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "17 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "30 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+			colorText[] = {1,1,1,0.25};
+		};
+		class CA_Title: CA_Title
+		{
+			idc = 1000;
+			text = "$STR_UI_DEBUG_TITLE";
+			x = "1 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "30 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+		};
+		class ValueInput1: RscEdit
+		{
+			IDC = 316011;
+			autocomplete = "scripting";
+			x = "1.5 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "2.5 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "29 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+		};
+		class ValueOutput1: RscEdit
+		{
+			IDC = 316012;
+			style = "0x00 + 0x200";
+			x = "1.5 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "3.5 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "29 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+		};
+		class ValueInput2: ValueInput1
+		{
+			IDC = 316021;
+			x = "1.5 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "4.5 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "29 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+		};
+		class ValueOutput2: ValueOutput1
+		{
+			IDC = 316022;
+			x = "1.5 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "5.5 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "29 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+		};
+		class ValueInput3: ValueInput1
+		{
+			IDC = 316031;
+			x = "1.5 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "6.5 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "29 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+		};
+		class ValueOutput3: ValueOutput1
+		{
+			IDC = 316032;
+			x = "1.5 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "7.5 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "29 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+		};
+		class ValueInput4: ValueInput1
+		{
+			IDC = 316041;
+			x = "1.5 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "8.5 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "29 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+		};
+		class ValueOutput4: ValueOutput1
+		{
+			IDC = 316042;
+			x = "1.5 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "9.5 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "29 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+		};
+		class CommandInput1: RscEdit
+		{
+			IDC = 316101;
+			autocomplete = "scripting";
+			x = "1.5 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "11 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "25.5 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+		};
+		class CommandButton1: RscShortcutButton
+		{
+			idc = 1700;
+			text = "Exec 1";
+			x = "27 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "11 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "4 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+			tooltip = "Ctrl+1";
+		};
+		class CommandInput2: CommandInput1
+		{
+			IDC = 316102;
+			x = "1.5 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "12 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "25.5 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+		};
+		class CommandButton2: CommandButton1
+		{
+			idc = 1701;
+			text = "Exec 2";
+			x = "27 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "12 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "4 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+			tooltip = "Ctrl+2";
+		};
+		class CommandInput3: CommandInput1
+		{
+			IDC = 316103;
+			x = "1.5 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "13 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "25.5 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+		};
+		class CommandButton3: CommandButton1
+		{
+			idc = 1702;
+			text = "Exec 3";
+			x = "27 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "13 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "4 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+			tooltip = "Ctrl+3";
+		};
+		class CommandInput4: CommandInput1
+		{
+			IDC = 316104;
+			x = "1.5 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "14 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "25.5 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+		};
+		class CommandButton4: CommandButton1
+		{
+			idc = 1703;
+			text = "Exec 4";
+			x = "27 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "14 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "4 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+			tooltip = "Ctrl+4";
+		};
+		class CommandInput5: CommandInput1
+		{
+			IDC = 316105;
+			x = "1.5 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "15 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "25.5 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+		};
+		class CommandButton5: CommandButton1
+		{
+			idc = 1704;
+			text = "Exec 5";
+			x = "27 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "15 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "4 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+			tooltip = "Ctrl+5";
+		};
+		class CommandInput6: CommandInput1
+		{
+			IDC = 316106;
+			x = "1.5 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "16 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "25.5 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+		};
+		class CommandButton6: CommandButton1
+		{
+			idc = 1705;
+			text = "Exec 6";
+			x = "27 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "16 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "4 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+			tooltip = "Ctrl+6";
+		};
+		class ButtonCancel: RscShortcutButton
+		{
+			idc = 2;
+			onButtonClick = "(ctrlParent (_this select 0)) closeDisplay 2";
+			default = 1;
+			shortcuts[] = {"0x00050000 + 1"};
+			text = "$STR_DISP_CANCEL";
+			x = "1 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "18 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "10 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+		};
+		class DebugCamera: RscShortcutButton
+		{
+			action = "cameraOn exec (getText (configFile >> ""cameraScript""))";
+			onButtonClick = "(ctrlParent (_this select 0)) closeDisplay 2";
+			shortcuts[] = {31};
+			idc = 1707;
+			text = "Camera";
+			x = "11 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "18 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "4 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+			tooltip = "Ctrl + S";
+		};
+		class DebugConfig: RscShortcutButton
+		{
+			action = "[] spawn {if (isnil 'bis_fnc_init') then {createcenter sidelogic; _logicGrp = creategroup sidelogic; _logicFnc = _logicGrp createunit ['FunctionsManager',[1,1,1],[],0,'none']}; waituntil {!isnil 'bis_fnc_init'};[] call bis_fnc_configviewer}";
+			shortcuts[] = {32};
+			idc = 1708;
+			text = "Config";
+			x = "15 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "18 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "4 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+			tooltip = "Ctrl + F";
+		};
+		class DebugFunctions: RscShortcutButton
+		{
+			action = "[] spawn {if (isnil 'bis_fnc_init') then {createcenter sidelogic; _logicGrp = creategroup sidelogic; _logicFnc = _logicGrp createunit ['FunctionsManager',[1,1,1],[],0,'none']}; waituntil {!isnil 'bis_fnc_init'};[] call bis_fnc_help}";
+			shortcuts[] = {33};
+			idc = 1709;
+			text = "Functions";
+			x = "19 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "18 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "4 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+			tooltip = "Ctrl + F";
+		};
+		class DebugGUI: RscShortcutButton
+		{
+			action = "[] spawn {if (isnil 'bis_fnc_init') then {createcenter sidelogic; _logicGrp = creategroup sidelogic; _logicFnc = _logicGrp createunit ['FunctionsManager',[1,1,1],[],0,'none']}; waituntil {!isnil 'bis_fnc_init'};[] call BIS_fnc_GUIeditor}";
+			onButtonClick = "(ctrlParent (_this select 0)) closeDisplay 2";
+			shortcuts[] = {34};
+			idc = 1710;
+			text = "GUI";
+			x = "23 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "18 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "4 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+			tooltip = "Ctrl + G";
+		};
+		class DebugPP: RscShortcutButton
+		{
+			action = "";
+			onButtonClick = "(ctrlParent (_this select 0)) closeDisplay 2";
+			shortcuts[] = {18};
+			idc = 1711;
+			text = "Effects";
+			x = "27 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "18 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "4 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+			tooltip = "Ctrl + P";
+		};
+		class TextScript1: RscText
+		{
+			sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
+			idc = 1001;
+			text = "\hsim\@debug\debug*.sqf";
+			x = "1 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "17 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "10 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+		};
+		class ButtonScript1: RscShortcutButton
+		{
+			action = "_nil = [] execvm '\hsim\@debug\debug1.sqf';";
+			idc = 1712;
+			text = "1";
+			x = "11 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "17 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "4 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+		};
+		class ButtonScript2: ButtonScript1
+		{
+			action = "_nil = [] execvm '\hsim\@debug\debug2.sqf';";
+			idc = 1713;
+			text = "2";
+			x = "15 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "17 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "4 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+		};
+		class ButtonScript3: ButtonScript1
+		{
+			action = "_nil = [] execvm '\hsim\@debug\debug3.sqf';";
+			idc = 1714;
+			text = "3";
+			x = "19 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "17 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "4 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+		};
+		class ButtonScript4: ButtonScript1
+		{
+			action = "_nil = [] execvm '\hsim\@debug\debug4.sqf';";
+			idc = 1715;
+			text = "4";
+			x = "23 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "17 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "4 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+		};
+		class ButtonScript5: ButtonScript1
+		{
+			action = "_nil = [] execvm '\hsim\@debug\debug5.sqf';";
+			idc = 1716;
+			text = "5";
+			x = "27 * 					(		((safezoneW / safezoneH) min 1.2) / 32) + 		(safezoneX + (safezoneW - 			((safezoneW / safezoneH) min 1.2))/2)";
+			y = "17 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + 		(safezoneY + (safezoneH - 			(		((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+			w = "4 * 					(		((safezoneW / safezoneH) min 1.2) / 32)";
+			h = "1 * 					(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
+		};
+	};
+};

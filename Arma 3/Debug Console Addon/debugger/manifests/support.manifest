@@ -1,0 +1,17 @@
+/*******************************************************************************
+ *	Name:			Support-File Manifest
+ *	Description:	List of support-type files to be loaded at game start
+ *  Notes:			CALL-MACRO BASED MANIFEST.
+ *	Parameters:		N/A
+ *	Return value:	N/A
+ ******************************************************************************/
+
+// Script
+call COMPILE_FILE_SUPT(adminList);
+call COMPILE_FILE_SUPT(defaultSettings);
+
+// Diary
+call COMPILE_FILE_SUPT(changelog);
+call COMPILE_FILE_SUPT(credits);
+call COMPILE_FILE_SUPT(documentation);
+call COMPILE_FILE_SUPT(functions);

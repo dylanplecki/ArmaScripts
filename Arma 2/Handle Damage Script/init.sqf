@@ -1,0 +1,1 @@
+foo = [] execVM "scripts\naught\handleDamage\init.sqf";
