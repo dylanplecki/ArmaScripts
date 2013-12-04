@@ -4,18 +4,16 @@
 
 #define COMPONENT teamRoster
 
-#define PREFIX CRACK
+#define PREFIX naught
 
 #define MAJOR 1
-#define MINOR 2
-#define PATCHLVL 0
-#define BUILD 1
+#define MINOR 4
 
-#define VERSION MAJOR.MINOR.PATCHLVL.BUILD
-#define VERSION_AR MAJOR,MINOR,PATCHLVL,BUILD
+#define VERSION MAJOR.MINOR
+#define VERSION_AR MAJOR,MINOR
 
 // MINIMAL required version for the Mod. Components can specify others..
-#define REQUIRED_VERSION 1.62
+#define REQUIRED_VERSION 1.0
 
 /*
 	#define DEBUG_ENABLED_SYS_MAIN

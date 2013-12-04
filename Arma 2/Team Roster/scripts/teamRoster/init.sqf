@@ -5,7 +5,7 @@
 // 		  | ||  __/| (_| || | | | | | | | \ \| (_) |\__ \| |_|  __/| |   
 // 		  |_| \___| \__,_||_| |_| |_| |_|  \_\\___/ |___/ \__|\___||_|   
 //
-//                    					v2 - By Crackman
+//                    					v1.4 - By Naught
 //			 								 	dylanplecki@gmail.com
 //			 								 	UnitedOperations.net
 //
@@ -28,8 +28,8 @@
 //			- The text BEFORE THE UNDERSCORE ("_", can be changed in the parameters file) of a unit's name will act as its description, so a
 //			  unit with the name "Grenadier_1_4" will have a description of "Grenadier"
 //
-//			- If "69" appears before the first underscore, it will be turned into a space. So 69 = Space
-//					Example - "Squad69Leader_1_4" = "Squad Leader"
+//			- If "99" appears before the first underscore, it will be turned into a space. So 99 = Space
+//					Example - "Squad99Leader_1_4" = "Squad Leader"
 //					Note: The "Space" character can be changed in the parameters file
 //
 //			- Arma Group Names can be changed by putting this into the leaders INIT field: '(group this) setGroupId ["1'4 Delta","GroupColor0"];'
