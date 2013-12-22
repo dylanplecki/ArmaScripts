@@ -24,7 +24,7 @@
 //	----------------------------------------
 //	File: oop.h
 //	Author: Naught <dylanplecki@gmail.com>
-//	Version: 1.1
+//	Version: 1.2
 //
 //	Description:
 //	Contains preprocessor definitions and macros for designing
@@ -104,8 +104,8 @@
 //  Group: Internal Definitions
 //////////////////////////////////////////////////////////////
 
-#defien CONSTRUCTOR_METHOD "constructor"
-#defien DECONSTRUCTOR_METHOD "deconstructor"
+#define CONSTRUCTOR_METHOD "constructor"
+#define DECONSTRUCTOR_METHOD "deconstructor"
 #define AUTO_INC_VAR(className) (className + "_IDAI")
 
 //////////////////////////////////////////////////////////////
@@ -126,8 +126,8 @@
 #define GETCLASS(className) (NAMESPACE getVariable [className, {nil}])
 #define CALLCLASS(className,member,args,access) ([_classID, member, (args), access] call GETCLASS(className))
 
-#define VAR_DFT_FUNC(varName) {if (isNil "_args") then {NAMESPACE getVariable [GETVAR(varName), nil]} else {NAMESPACE setVariable [GETVAR(varName), _args]};}
-#define SVAR_DFT_FUNC(varName) {if (isNil "_args") then {NAMESPACE getVariable [GETSVAR(varName), nil]} else {NAMESPACE setVariable [GETSVAR(varName), _args]};}
+#define VAR_DFT_FUNC(varName) {if (isNil "_this") then {NAMESPACE getVariable [GETVAR(varName), nil]} else {NAMESPACE setVariable [GETVAR(varName), _this]};}
+#define SVAR_DFT_FUNC(varName) {if (isNil "_this") then {NAMESPACE getVariable [GETSVAR(varName), nil]} else {NAMESPACE setVariable [GETSVAR(varName), _this]};}
 #define VAR_DELETE(varName) (NAMESPACE setVariable [GETVAR(varName), nil])
 
 #define MOD_VAR(varName,mod) MEMBER(varName,MEMBER(varName,nil)+mod); 
@@ -212,7 +212,7 @@
 	See Also:
 		<CLASS>
 */
-#define CLASS_EXTENDS(childClassName,parentClassName) INSTANTIATE_CLASS(childClassName) default {CALLCLASS(parentClassName,_member,_args,1);};
+#define CLASS_EXTENDS(childClassName,parentClassName) INSTANTIATE_CLASS(childClassName) default {CALLCLASS(parentClassName,_member,_this,1);};
 
 /*
 	Defines:

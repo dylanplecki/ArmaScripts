@@ -1,5 +1,5 @@
 /*
-	Title: Vehicle Library
+	Title: Object Library
 	Author: Dylan Plecki (Naught)
 	
 	License:
@@ -9,7 +9,42 @@
 */
 
 /*
-	Group: Vehicle Information Functions
+	Group: General Functions
+*/
+
+UCD_fnc_getPos = {
+	CHECK_THIS;
+	private ["_thing"];
+	_thing = _this select 0;
+	switch (typeName _thing) do {
+		case "OBJECT": {getPos _thing};
+		case "STRING": {getMarkerPos _thing};
+		case "ARRAY": {getWPPos _thing};
+		default {[0,0,0]};
+	};
+};
+
+/*
+	Group: Player Functions
+*/
+
+UCD_fnc_closestPlayerDis = {
+	CHECK_THIS;
+	private ["_ref", "_minDis"];
+	_ref = [_this select 0] call UCD_fnc_getPos;
+	_minDis = -1;
+	{ // forEach
+		private ["_dis"];
+		_dis = _x distance _ref;
+		if ((_dis < _minDis) || {_minDis < 0}) then {
+			_minDis = _dis;
+		};
+	} forEach (call CBA_fnc_players);
+	_minDis
+};
+
+/*
+	Group: Vehicle Functions
 */
 
 UCD_fnc_unitVehPos = {

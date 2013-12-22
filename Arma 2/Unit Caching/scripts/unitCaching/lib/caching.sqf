@@ -23,16 +23,16 @@ CLASS("UCD_obj_cachedObject")
 		DELETE_VARIABLE("properties");
 	};
 	PUBLIC FUNCTION("array","insert") {
-		["insert", _this] call _prop;
+		["insert", _this] call MEMBER("properties",nil);
 	};
 	PUBLIC FUNCTION("string","get") {
-		["get", _this] call _prop;
+		["get", _this] call MEMBER("properties",nil);
 	};
 	PUBLIC FUNCTION("array","get") {
-		["get", _this] call _prop;
+		["get", _this] call MEMBER("properties",nil);
 	};
 	PUBLIC FUNCTION("string","erase") {
-		["get", _this] call _prop;
+		["get", _this] call MEMBER("properties",nil);
 	};
 	PUBLIC FUNCTION("","copy") {
 		["copy"] call MEMBER("properties",nil);
@@ -90,13 +90,19 @@ CLASS_EXTENDS("UCD_obj_cachedAsset","UCD_obj_cachedObject")
 		_pos = _this;
 		_prop = MEMBER("properties",nil);
 		if (isNil {["get", "vehicle"] call _prop}) then { // Unit
-			_obj = (["get", "type"] call _prop) createUnit [
+			_obj = (["get", ["group", grpNull]] call _prop) createUnit [
+				["get", "type"] call _prop,
 				_pos,
-				["get", ["group", grpNull]] call _prop,
-				"",
-				["get", ["skill", 0.5]] call _prop,
-				["get", ["rank", "PRIVATE"]] call _prop,
+				[],
+				100,
+				"FORM"
 			];
+			_obj setSkill (["get", ["skill", 0.5]] call _prop);
+			_obj setRank (["get", ["rank", "PRIVATE"]] call _prop);
+			removeAllItems _obj;
+			removeAllWeapons _obj;
+			removeBackpack _obj;
+			{_obj removeMagazine _x} forEach magazines _obj;
 			{ // forEach
 				_obj addMagazine _x;
 			} forEach (["get", ["magazines", []]] call _prop);
@@ -151,6 +157,21 @@ ENDCLASS;
 	Group: Caching Functions
 */
 
+UCD_fnc_cacheable = {
+	CHECK_THIS;
+	private ["_obj", "_cacheable"];
+	_obj = _this select 0;
+	_cacheable = ["", false, false, -1];
+	if (!(isNull _obj) && {local _obj} && {alive _obj} && {!(isPlayer _obj)} && {_obj getVariable ["cacheObject", true]}) then {
+		{ // forEach
+			if (_obj isKindOf (_x select 0)) exitWith {
+				_cacheable = _x;
+			};
+		} forEach UCD_cacheList;
+	};
+	_cacheable
+};
+
 UCD_fnc_cacheGroup = {
 	CHECK_THIS;
 	private ["_group"];
@@ -162,23 +183,25 @@ UCD_fnc_cacheObject = {
 	CHECK_THIS;
 	private ["_obj"];
 	_obj = _this select 0;
-	if (!isNull _obj && {alive _obj} && {_obj getVariable ["cacheObject", true]}) then {
+	if (!(isNull (group _obj)) && {_obj == (leader _obj)}) then {
+		[(group _obj)] call UCD_fnc_cacheGroup;
+	} else {
+		uisleep 2; // Let object init code process
+		if (!isDedicated) then {waitUntil {!isNull player}}; // To avoid deletion of player unit
 		private ["_cache"];
-		_cache = ["", false];
-		{ // forEach
-			if (_obj isKindOf (_x select 0)) exitWith {
-				_cache = _x;
-			};
-		} forEach UCD_cacheList;
+		while {true} do {
+			_cache = [_obj] call UCD_fnc_cacheable;
+			if (!(_cache select 1)) exitWith {};
+			private ["_minDis"];
+			_minDis = [_obj] call UCD_fnc_closestPlayerDis;
+			if ((_minDis) > (_minDis call (_cache select 3))) exitWith {};
+			sleep CACHE_MONITOR_DELAY;
+		};
 		if (_cache select 1) then {
 			if (_obj isKindOf "Man") then { // Unit
-				if (_obj == (leader _obj)) then { // Never cache leader
-					[group _obj] call UCD_fnc_cacheGroup;
-				} else {
-					[_obj, (_x select 2), (_x select 3)] call UCD_fnc_cacheUnit;
-				};
+				[_obj, (_cache select 2), (_cache select 3)] call UCD_fnc_cacheUnit;
 			} else { // Vehicle
-				[_obj, (_x select 2), (_x select 3)] call UCD_fnc_cacheVehicle;
+				[_obj, (_cache select 2), (_cache select 3)] call UCD_fnc_cacheVehicle;
 			};
 		};
 	};
@@ -206,7 +229,7 @@ UCD_fnc_cacheUnit = {
 	};
 };
 
-UCD_fnc_cacheVehicle = {
+UCD_fnc_cacheVehicle = { // Slightly experimental
 	CHECK_THIS;
 	private ["_veh", "_savePos", "_spawnDis", "_cache"];
 	_veh = _this select 0;
@@ -228,33 +251,39 @@ UCD_fnc_cacheVehicle = {
 	};
 };
 
-UCD_fnc_cacheMonitor = {
+UCD_fnc_checkCache = {
 	CHECK_THIS;
-	private ["_group", "_cachedObjects"];
-	_group = _this select 0;
-	waitUntil {
-		_cachedObjects = _group getVariable ["UCD_cachedObjects", []];
-		if ((count _cachedObjects) > 0) then {
-			private ["_leader", "_minDis"];
-			_leader = leader _group;
-			_minDis = -1;
+	private ["_refObj", "_cachedObjects", "_nonCachedObjects"];
+	_refObj = _this select 0;
+	_cachedObjects = +(_this select 1);
+	_nonCachedObjects = [];
+	if ((count _cachedObjects) > 0) then {
+		private ["_minDis"];
+		_minDis = [_refObj] call UCD_fnc_closestPlayerDis;
+		if (_minDis >= 0) then {
 			{ // forEach
-				private ["_dis"];
-				_dis = _x distance _leader;
-				if ((_dis < _minDis) || {_minDis < 0}) then {
-					_minDis = _dis;
-				};
-			} forEach (call CBA_fnc_players);
-			{ // forEach
-				if ((["get", ["spawnDis", 0]] call _x) > _minDis) then {
-					["spawn", (getPos _leader)] call _x;
+				if ((_minDis call (["get", ["spawnDis", 0]] call _x)) >= _minDis) then {
+					_nonCachedObjects = _nonCachedObjects + [_x];
 					_cachedObjects set [_forEachIndex, objNull];
 				};
 			} forEach _cachedObjects;
-			_cachedObjects = _cachedObjects - [objNull];
-			_group setVariable ["UCD_cachedObjects", _cachedObjects];
 		};
+	};
+	[_nonCachedObjects, (_cachedObjects - [objNull])]; // [toSpawn, toDoNothing]
+};
+
+UCD_fnc_cacheMonitor = {
+	CHECK_THIS;
+	private ["_group"];
+	_group = _this select 0;
+	waitUntil {
+		private ["_objects"];
+		_objects = [(leader _group), (_group getVariable ["UCD_cachedObjects", []])] call UCD_fnc_checkCache;
+		{ // forEach
+			["spawn", (getPos (leader _group))] call _x;
+		} forEach (_objects select 0);
+		_group setVariable ["UCD_cachedObjects", (_objects select 1)];
 		sleep CACHE_MONITOR_DELAY;
-		(isNil "_group") || {isNull _group} || {(units _group) <= 0};
+		(isNil "_group") || {isNull _group} || {(count (units _group)) <= 0};
 	};
 };

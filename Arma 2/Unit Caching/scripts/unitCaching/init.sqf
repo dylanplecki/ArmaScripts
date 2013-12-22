@@ -60,8 +60,7 @@ UCD_cacheList = [ // List is read top-down, stops at first matching type
 #include "lib\arrays.sqf"
 #include "lib\caching.sqf"
 #include "lib\hashmaps.sqf"
-#include "lib\vehicles.sqf"
+#include "lib\objects.sqf"
 
 // Finalize script load
 UCD_init = true;
-
