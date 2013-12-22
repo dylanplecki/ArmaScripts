@@ -1,0 +1,13 @@
+
+class Extended_PreInit_EventHandlers
+{
+    UCD_preInit = "call compile preprocessFileLineNumbers 'scripts\unitCaching\init.sqf';";
+};
+
+class Extended_Init_EventHandlers
+{
+    class AllVehicles
+    {
+        UCD_objInit = "[_this] call UCD_fnc_cacheObject;";
+    };
+};
