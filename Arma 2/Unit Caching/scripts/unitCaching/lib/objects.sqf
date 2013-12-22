@@ -65,7 +65,7 @@ UCD_fnc_unitVehPos = {
 		unit
 		
 	Returns:
-		[""] - on foot
+		["None"] - on foot
 		["Commander"] - commander 
 		["Gunner"] - gunner 
 		["Driver"] - driver 
@@ -105,7 +105,7 @@ UCD_fnc_unitVehPos = {
 	};
 	_u = _this;
 	_v = vehicle _u;
-	if (_u == _v) exitwith {[""]};
+	if (_u == _v) exitwith {["None"]};
 	_tp = [__cfg,[],_fn,[]] call _fn;
 	//diag_log _tp;
 	_ptp = [];

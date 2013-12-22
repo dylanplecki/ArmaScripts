@@ -1,7 +1,6 @@
 /*
 	Title: Unit Caching and Distribution Script
 	Author: Dylan Plecki (Naught)
-	Version: 1.0.1.2
 	
 	Description:
 		An SQF script designed to dynamically cache and distribute AI units
@@ -9,6 +8,10 @@
 	
 	Usage:
 		None, script is fully autonomous.
+	
+	Requirements:
+		Arma 2 OA [1.62]
+		Arma 3 [any version]
 	
 	License:
 		Copyright © 2013 Dylan Plecki. All rights reserved.
@@ -19,34 +22,13 @@
 #include "h\oop.h"
 
 /*
-	Group: Definitons & Settings
+	Group: Definitons
 */
 
 // Don't change this!
 UCD_init = false;
 
-// These definitions rarely ever change
-#define GLOBAL_SPAWN_DISTANCE {viewDistance + 250}
-#define CACHE_MONITOR_DELAY 15 // Seconds
-
-// Vehicle Caching is currently experimental
-#define CACHE_VEH_TIMEOUT 30 // seconds
-#define CACHE_VEH_COMMANDER true
-#define CACHE_VEH_GUNNER true
-#define CACHE_VEH_DRIVER false // Recommended false unless caching vehicle
-#define CACHE_VEH_TURRET true
-#define CACHE_VEH_CARGO true
-#define CACHE_VEH_NONE true // Cache units not in vehicles
-
-// This definiton is completely user configurable
-UCD_cacheList = [ // List is read top-down, stops at first matching type
-	// ["typeName", 	cache,	spawnPos,	{spawnDistCode}],
-	["LandVehicle",		false,	true,		GLOBAL_SPAWN_DISTANCE],
-	["Air",				false,	true,		GLOBAL_SPAWN_DISTANCE],
-	["Ship",			false,	true,		GLOBAL_SPAWN_DISTANCE],
-	["Man",				true,	false,		GLOBAL_SPAWN_DISTANCE],
-	["All",				false,	true,		0] // All other objects don't cache
-];
+#include "config.sqf"
 
 /*
 	Group: Macros
@@ -59,9 +41,18 @@ UCD_cacheList = [ // List is read top-down, stops at first matching type
 */
 
 #include "lib\arrays.sqf"
-#include "lib\caching.sqf"
 #include "lib\hashmaps.sqf"
 #include "lib\objects.sqf"
+#include "lib\caching.sqf"
+#include "lib\distribution.sqf"
 
-// Finalize script load
+/*
+	Group: Initialization Finalization
+*/
+
+if (isServer) then {
+	UCD_serverInit = true;
+	publicVariable "UCD_serverInit";
+};
+
 UCD_init = true;

@@ -45,14 +45,14 @@ ENDCLASS;
 CLASS_EXTENDS("UCD_obj_cachedAsset","UCD_obj_cachedObject")
 	PUBLIC FUNCTION("object","constructor") {
 		private ["_params"];
-		_params = [_this, false, GLOBAL_SPAWN_DISTANCE];
+		_params = [_this, false, {GLOBAL_SPAWN_DISTANCE}];
 		MEMBER("constructor",_params);
 	};
 	PUBLIC FUNCTION("array","constructor") {
 		private ["_unit", "_savePos", "_spawnDis", "_prop"];
 		_unit = _this select 0;
 		_savePos = DEFAULT_PARAM(1,false);
-		_spawnDis = DEFAULT_PARAM(2,GLOBAL_SPAWN_DISTANCE);
+		_spawnDis = DEFAULT_PARAM(2,{GLOBAL_SPAWN_DISTANCE});
 		_prop = ["new"] call UCD_obj_hashMap;
 		/* Optimized non-member inserts */
 		["insert", ["type", (typeOf _unit)]] call _prop;
@@ -63,6 +63,7 @@ CLASS_EXTENDS("UCD_obj_cachedAsset","UCD_obj_cachedObject")
 		["insert", ["vectorDir", (vectorDir _unit)]] call _prop;
 		["insert", ["vectorUp", (vectorUp _unit)]] call _prop;
 		["insert", ["velocity", (velocity _unit)]] call _prop;
+		["insert", ["vehicleVarName", (vehicleVarName _unit)]] call _prop;
 		if (_unit isKindOf "Man") then {
 			["insert", ["group", (group _unit)]] call _prop;
 			["insert", ["weapons", (weapons _unit)]] call _prop;
@@ -79,17 +80,25 @@ CLASS_EXTENDS("UCD_obj_cachedAsset","UCD_obj_cachedObject")
 				["insert", ["wob", [_unit] call ACE_fnc_WeaponOnBackName]] call _prop;
 			};
 		} else {
+			["insert", ["isVehicle", true]] call _prop;
 			["insert", ["weaponCargo", (getWeaponCargo _unit)]] call _prop;
 			["insert", ["magazineCargo", (getMagazineCargo _unit)]] call _prop;
 		};
 		MEMBER("properties",_prop);
 		deleteVehicle _unit;
 	};
+	PUBLIC FUNCTION("","spawn") {
+		private ["_params"];
+		_params = [0,0,0];
+		MEMBER("spawn",_params);
+	};
 	PUBLIC FUNCTION("array","spawn") {
 		private ["_pos", "_obj", "_prop"];
-		_pos = _this;
+		_pos = if (["get", ["spawnPos", false]] call _prop) then { // Force spawn at set position
+			["get", "position"] call _prop;
+		} else {_this};
 		_prop = MEMBER("properties",nil);
-		if (isNil {["get", "vehicle"] call _prop}) then { // Unit
+		if (!(["get", ["isVehicle", false]] call _prop)) then { // Unit
 			_obj = (["get", ["group", grpNull]] call _prop) createUnit [
 				["get", "type"] call _prop,
 				_pos,
@@ -143,8 +152,14 @@ CLASS_EXTENDS("UCD_obj_cachedAsset","UCD_obj_cachedObject")
 				_obj addMagazineCargoGlobal [_x, ((_magCargo select 1) select _forEachIndex)];
 			} forEach (_magCargo select 0);
 		};
-		if (["get", ["spawnPos", false]] call _prop) then { // Force spawn at set position
-			_obj setPos (["get", "position"] call _prop);
+		private ["_varName"];
+		_varName = ["get", ["vehicleVarName", ""]] call _prop;
+		if (_varName != "") then {
+			_obj setVehicleVarName _varName;
+			missionNamespace setVariable [_varName, _obj];
+			publicVariable _varName;
+		};
+		if (["get", ["spawnPos", false]] call _prop) then {
 			_obj setVectorDir (["get", "vectorDir"] call _prop);
 			_obj setVectorUp (["get", "vectorUp"] call _prop);
 			_obj setVelocity (["get", "velocity"] call _prop);
@@ -162,7 +177,7 @@ UCD_fnc_cacheable = {
 	private ["_obj", "_cacheable"];
 	_obj = _this select 0;
 	_cacheable = ["", false, false, -1];
-	if (!(isNull _obj) && {local _obj} && {alive _obj} && {!(isPlayer _obj)} && {_obj getVariable ["cacheObject", true]}) then {
+	if (!(isNil "_obj") && {!isNull _obj} && {local _obj} && {alive _obj} && {!(isPlayer _obj)} && {_obj getVariable ["cacheObject", true]}) then {
 		{ // forEach
 			if (_obj isKindOf (_x select 0)) exitWith {
 				_cacheable = _x;
@@ -176,7 +191,11 @@ UCD_fnc_cacheGroup = {
 	CHECK_THIS;
 	private ["_group"];
 	_group = _this select 0;
-	[_group] spawn UCD_fnc_cacheMonitor;
+	if (isNil {_group getVariable ["UCD_monitorScript", nil]}) then {
+		private ["_handle"];
+		_handle = [_group] spawn UCD_fnc_cacheMonitor;
+		_group setVariable ["UCD_monitorScript", _handle];
+	};
 };
 
 UCD_fnc_cacheObject = {
@@ -209,22 +228,19 @@ UCD_fnc_cacheObject = {
 
 UCD_fnc_cacheUnit = {
 	CHECK_THIS;
-	private ["_unit", "_savePos", "_spawnDis", "_cache"];
+	private ["_unit", "_unitVehPos", "_cache"];
 	_unit = _this select 0;
-	_savePos = DEFAULT_PARAM(1,false);
-	_spawnDis = DEFAULT_PARAM(2,GLOBAL_SPAWN_DISTANCE);
-	_cache = switch (_unit call UCD_fnc_unitVehPos) do {
-		case "Commander": {CACHE_VEH_COMMANDER};
-		case "Gunner": {CACHE_VEH_GUNNER};
-		case "Driver": {CACHE_VEH_DRIVER};
-		case "Turret": {CACHE_VEH_TURRET};
-		case "Cargo": {CACHE_VEH_CARGO};
-		default {CACHE_VEH_NONE};
-	};
-	if (_cache) then {
+	_cache = ["", true, DEFAULT_PARAM(1,false), DEFAULT_PARAM(2,{GLOBAL_SPAWN_DISTANCE})];
+	_unitVehPos = _unit call UCD_fnc_unitVehPos;
+	{ // forEach
+		if ((_x select 0) == (_unitVehPos select 0)) exitWith {
+			_cache = _x;
+		};
+	} forEach UCD_cacheList;
+	if (_cache select 1) then {
 		private ["_group", "_cachedUnit"];
 		_group = group _unit;
-		_cachedUnit = ["new", [_unit, _savePos, _spawnDis]] call UCD_obj_cachedAsset;
+		_cachedUnit = ["new", [_unit, (_cache select 2), (_cache select 3)]] call UCD_obj_cachedAsset;
 		[_group, "UCD_cachedObjects", _cachedUnit] call UCD_fnc_push;
 	};
 };
@@ -234,7 +250,7 @@ UCD_fnc_cacheVehicle = { // Slightly experimental
 	private ["_veh", "_savePos", "_spawnDis", "_cache"];
 	_veh = _this select 0;
 	_savePos = DEFAULT_PARAM(1,false);
-	_spawnDis = DEFAULT_PARAM(2,GLOBAL_SPAWN_DISTANCE);
+	_spawnDis = DEFAULT_PARAM(2,{GLOBAL_SPAWN_DISTANCE});
 	if ((count (crew _veh)) > 0) then {
 		private ["_group", "_endWait"];
 		_group = group ((crew _veh) select 0);
@@ -276,14 +292,29 @@ UCD_fnc_cacheMonitor = {
 	CHECK_THIS;
 	private ["_group"];
 	_group = _this select 0;
-	waitUntil {
+	while {!(isNil "_group") && {!isNull _group} && {(count (units _group)) >= 0} && {!isNil {_group getVariable ["UCD_monitorScript", nil]}}} do {
 		private ["_objects"];
 		_objects = [(leader _group), (_group getVariable ["UCD_cachedObjects", []])] call UCD_fnc_checkCache;
 		{ // forEach
 			["spawn", (getPos (leader _group))] call _x;
+			["delete", _x] call UCD_obj_cachedAsset;
 		} forEach (_objects select 0);
 		_group setVariable ["UCD_cachedObjects", (_objects select 1)];
-		sleep CACHE_MONITOR_DELAY;
-		(isNil "_group") || {isNull _group} || {(count (units _group)) <= 0};
+		uisleep CACHE_MONITOR_DELAY;
+		waitUntil {!isNil "UCD_distributeAI"};
+		if (isServer && {UCD_distributeAI} && {(count UCD_headlessClients) > 0}) exitWith {
+			private ["_hc"];
+			_hc = UCD_headlessClients select random((count UCD_headlessClients) - 1); // Equal probability distribution?
+			[_group, (_hc select 1)] call UCD_fnc_sendGroup;
+		};
 	};
+};
+
+/*
+	Group: Initialization Code
+*/
+
+if (isServer) then {
+	UCD_distributeAI = CACHE_DISTRIBUTE_AI;
+	publicVariable "UCD_distributeAI";
 };
