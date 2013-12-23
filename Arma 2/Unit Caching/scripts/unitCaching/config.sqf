@@ -8,7 +8,7 @@
 		Caching may break scripts which count units (such as scripts which
 		monitor AI counts for the mission ending), and distribution may
 		break scripts which modify AI behaviour (such as UPSMON). To fix
-		this, one may use a the "CACHE_UNIT_SPAWN_FNC" definition to define
+		this, one may use the "CACHE_UNIT_SPAWN_FNC" definition to define
 		a function to load and process on every cached unit spawn, such as:
 			{_this call MY_fnc_unitSpawn;} // _this == _spawnedObject
 		Where "MY_fnc_unitSpawn" contains code with differentiates between
