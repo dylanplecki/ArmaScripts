@@ -38,7 +38,7 @@ CLASS("UCD_obj_cachedObject")
 		["copy"] call MEMBER("properties",nil);
 	};
 	PUBLIC FUNCTION("array","copy") {
-		["copy",_this] call MEMBER("properties",nil);
+		["copy", _this] call MEMBER("properties",nil);
 	};
 ENDCLASS;
 
@@ -93,14 +93,14 @@ CLASS_EXTENDS("UCD_obj_cachedAsset","UCD_obj_cachedObject")
 		MEMBER("spawn",_params);
 	};
 	PUBLIC FUNCTION("array","spawn") {
-		private ["_pos", "_obj", "_prop"];
+		private ["_prop", "_pos", "_obj"];
+		_prop = MEMBER("properties",nil);
 		_pos = if (["get", ["spawnPos", false]] call _prop) then { // Force spawn at set position
 			["get", "position"] call _prop;
 		} else {_this};
-		_prop = MEMBER("properties",nil);
 		if (!(["get", ["isVehicle", false]] call _prop)) then { // Unit
 			_obj = (["get", ["group", grpNull]] call _prop) createUnit [
-				["get", "type"] call _prop,
+				(["get", "type"] call _prop),
 				_pos,
 				[],
 				100,
@@ -108,12 +108,12 @@ CLASS_EXTENDS("UCD_obj_cachedAsset","UCD_obj_cachedObject")
 			];
 			_obj setSkill (["get", ["skill", 0.5]] call _prop);
 			_obj setRank (["get", ["rank", "PRIVATE"]] call _prop);
+			{_obj removeMagazine _x} forEach (magazines _obj);
 			removeAllItems _obj;
 			removeAllWeapons _obj;
 			removeBackpack _obj;
-			{_obj removeMagazine _x} forEach magazines _obj;
 			{ // forEach
-				_obj addMagazine _x;
+				_obj addMagazine _x; // This creates "No owner" error spam in RPT for some reason
 			} forEach (["get", ["magazines", []]] call _prop);
 			{ // forEach
 				_obj addWeapon _x;
@@ -123,7 +123,7 @@ CLASS_EXTENDS("UCD_obj_cachedAsset","UCD_obj_cachedObject")
 					[_obj, (_x select 0), (_x select 1)] call ACE_fnc_PackWeapon;
 				} forEach (["get", ["ruckWeps", []]] call _prop);
 				{ // forEach
-					[_obj, (_x select 0), (_x select 1)] call ACE_fnc_PackWeapon;
+					[_obj, (_x select 0), (_x select 1)] call ACE_fnc_PackMagazine;
 				} forEach (["get", ["ruckMags", []]] call _prop);
 				_obj setVariable ["ACE_weapononback", (["get", ["wob", ""]] call _prop), true];
 			};
@@ -164,6 +164,7 @@ CLASS_EXTENDS("UCD_obj_cachedAsset","UCD_obj_cachedObject")
 			_obj setVectorUp (["get", "vectorUp"] call _prop);
 			_obj setVelocity (["get", "velocity"] call _prop);
 		};
+		_obj call UCD_spawnUnitInit;
 		_obj
 	};
 ENDCLASS;
@@ -192,9 +193,7 @@ UCD_fnc_cacheGroup = {
 	private ["_group"];
 	_group = _this select 0;
 	if (isNil {_group getVariable ["UCD_monitorScript", nil]}) then {
-		private ["_handle"];
-		_handle = [_group] spawn UCD_fnc_cacheMonitor;
-		_group setVariable ["UCD_monitorScript", _handle];
+		_group setVariable ["UCD_monitorScript", ([_group] spawn UCD_fnc_cacheMonitor)];
 	};
 };
 
@@ -202,25 +201,26 @@ UCD_fnc_cacheObject = {
 	CHECK_THIS;
 	private ["_obj"];
 	_obj = _this select 0;
-	if (!(isNull (group _obj)) && {_obj == (leader _obj)}) then {
-		[(group _obj)] call UCD_fnc_cacheGroup;
-	} else {
+	if ((local _obj) && {!isNull (group _obj)}) then {
 		uisleep 2; // Let object init code process
-		if (!isDedicated) then {waitUntil {!isNull player}}; // To avoid deletion of player unit
-		private ["_cache"];
-		while {true} do {
-			_cache = [_obj] call UCD_fnc_cacheable;
-			if (!(_cache select 1)) exitWith {};
-			private ["_minDis"];
-			_minDis = [_obj] call UCD_fnc_closestPlayerDis;
-			if ((_minDis) > (_minDis call (_cache select 3))) exitWith {};
-			sleep CACHE_MONITOR_DELAY;
-		};
-		if (_cache select 1) then {
-			if (_obj isKindOf "Man") then { // Unit
-				[_obj, (_cache select 2), (_cache select 3)] call UCD_fnc_cacheUnit;
-			} else { // Vehicle
-				[_obj, (_cache select 2), (_cache select 3)] call UCD_fnc_cacheVehicle;
+		[(group _obj)] call UCD_fnc_cacheGroup;
+		if (_obj != (leader _obj)) then {
+			if (!isDedicated) then {waitUntil {!isNull player}}; // To avoid deletion of player unit
+			private ["_cache"];
+			while {true} do {
+				_cache = [_obj] call UCD_fnc_cacheable;
+				if (!(_cache select 1)) exitWith {};
+				private ["_minDis"];
+				_minDis = [_obj] call UCD_fnc_closestPlayerDis;
+				if ((_minDis) > (_minDis call (_cache select 3))) exitWith {};
+				sleep CACHE_MONITOR_DELAY;
+			};
+			if (_cache select 1) then {
+				if (_obj isKindOf "Man") then { // Unit
+					[_obj, (_cache select 2), (_cache select 3)] call UCD_fnc_cacheUnit;
+				} else { // Vehicle
+					[_obj, (_cache select 2), (_cache select 3)] call UCD_fnc_cacheVehicle;
+				};
 			};
 		};
 	};
@@ -302,12 +302,13 @@ UCD_fnc_cacheMonitor = {
 		_group setVariable ["UCD_cachedObjects", (_objects select 1)];
 		uisleep CACHE_MONITOR_DELAY;
 		waitUntil {!isNil "UCD_distributeAI"};
-		if (isServer && {UCD_distributeAI} && {(count UCD_headlessClients) > 0}) exitWith {
+		if (isServer && {UCD_distributeAI} && {(count UCD_headlessClients) > 0} && {local (leader _group)}) exitWith {
 			private ["_hc"];
 			_hc = UCD_headlessClients select random((count UCD_headlessClients) - 1); // Equal probability distribution?
 			[_group, (_hc select 1)] call UCD_fnc_sendGroup;
 		};
 	};
+	_group setVariable ["UCD_monitorScript", nil];
 };
 
 /*
@@ -315,6 +316,8 @@ UCD_fnc_cacheMonitor = {
 */
 
 if (isServer) then {
+	UCD_spawnUnitInit = CACHE_UNIT_SPAWN_FNC;
 	UCD_distributeAI = CACHE_DISTRIBUTE_AI;
 	publicVariable "UCD_distributeAI";
+	publicVariable "UCD_spawnUnitInit";
 };

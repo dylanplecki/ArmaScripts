@@ -24,7 +24,7 @@
 //	----------------------------------------
 //	File: oop.h
 //	Author: Naught <dylanplecki@gmail.com>
-//	Version: 1.2
+//	Version: 1.3
 //
 //	Description:
 //	Contains preprocessor definitions and macros for designing
@@ -112,6 +112,8 @@
 //  Group: Internal Macros
 //////////////////////////////////////////////////////////////
 
+#define SAFE_VAR(var) (if (isNil {var}) then {nil} else {var})
+
 #define ENSURE_INDEX(idx,dft) if ((count _this) <= idx) then {_this set [idx,dft]}
 #define CHECK_THIS if (isNil "_this") then {_this = []} else {if (typeName(_this) != "ARRAY") then {_this = [_this]}}
 
@@ -124,7 +126,7 @@
 #define GETVAR(var) (_classID + "_" + var)
 #define GETSVAR(var) (_class + "_" + var)
 #define GETCLASS(className) (NAMESPACE getVariable [className, {nil}])
-#define CALLCLASS(className,member,args,access) ([_classID, member, (args), access] call GETCLASS(className))
+#define CALLCLASS(className,member,args,access) ([_classID, member, SAFE_VAR(args), access] call GETCLASS(className))
 
 #define VAR_DFT_FUNC(varName) {if (isNil "_this") then {NAMESPACE getVariable [GETVAR(varName), nil]} else {NAMESPACE setVariable [GETVAR(varName), _this]};}
 #define SVAR_DFT_FUNC(varName) {if (isNil "_this") then {NAMESPACE getVariable [GETSVAR(varName), nil]} else {NAMESPACE setVariable [GETSVAR(varName), _this]};}
@@ -164,8 +166,7 @@
 			_member = _this select 1; \
 			_access = DEFAULT_PARAM(3,0); \
 			_this = DEFAULT_PARAM(2,nil); \
-			_argType = typeName(_this); \
-			if (isNil "_argType") then {_argType = ""}; \
+			_argType = if (isNil "_this") then {""} else {typeName _this}; \
 			switch (true) do {
 			
 #define FINALIZE_CLASS };};};};}]

@@ -1,6 +1,7 @@
 /*
 	Title: Unit Caching and Distribution Script
 	Author: Dylan Plecki (Naught)
+	Version: 1.0.1.5
 	
 	Description:
 		An SQF script designed to dynamically cache and distribute AI units
@@ -12,6 +13,7 @@
 	Requirements:
 		Arma 2 OA [1.62]
 		Arma 3 [any version]
+		CBA [any version]
 	
 	License:
 		Copyright © 2013 Dylan Plecki. All rights reserved.
