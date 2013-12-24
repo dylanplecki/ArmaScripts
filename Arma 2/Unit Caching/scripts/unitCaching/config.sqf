@@ -40,5 +40,5 @@ UCD_cacheList = [ // List is read top-down, stops at first matching type
 	["Turret",			true,	false,		{GLOBAL_SPAWN_DISTANCE}],
 	["Cargo",			true,	false,		{GLOBAL_SPAWN_DISTANCE}],
 	["None",			true,	false,		{GLOBAL_SPAWN_DISTANCE}], // A.K.A units not in vehicles
-	["All",				false,	true,		0] // All other objects don't cache
+	["All",				false,	true,		{-1}] // All other objects don't cache
 ];
