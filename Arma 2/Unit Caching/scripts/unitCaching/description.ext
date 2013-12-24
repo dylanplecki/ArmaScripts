@@ -3,8 +3,8 @@ class Extended_PreInit_EventHandlers
 {
 	class ucd
 	{
-		init = "call compile preProcessFileLineNumbers 'scripts\unitCaching\init.sqf'"; // For testing, allows recompile
-		//init = "call ('scripts\unitCaching\init.sqf' call SLX_XEH_COMPILE)";
+		//init = "call compile preProcessFileLineNumbers 'scripts\unitCaching\init.sqf'"; // For testing, allows recompile
+		init = "call ('scripts\unitCaching\init.sqf' call SLX_XEH_COMPILE)";
 	};
 };
 
