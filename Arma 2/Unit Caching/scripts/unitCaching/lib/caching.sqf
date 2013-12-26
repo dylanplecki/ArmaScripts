@@ -204,23 +204,23 @@ UCD_fnc_cacheObject = {
 	if ((local _obj) && {!isNull (group _obj)}) then {
 		uisleep 2; // Let object init code process
 		[(group _obj)] call UCD_fnc_cacheGroup;
-		if (_obj != (leader _obj)) then {
-			if (!isDedicated) then {waitUntil {!isNull player}}; // To avoid deletion of player unit
-			private ["_cache"];
-			while {true} do {
+		if (!isDedicated) then {waitUntil {!isNull player}}; // To avoid deletion of player unit
+		private ["_cache"];
+		while {true} do { // Only way to break loop is through exitWith
+			if (_obj != (leader _obj)) then {
 				_cache = [_obj] call UCD_fnc_cacheable;
 				if (!(_cache select 1)) exitWith {};
 				private ["_minDis"];
 				_minDis = [_obj] call UCD_fnc_closestPlayerDis;
 				if ((_minDis) > (_minDis call (_cache select 3))) exitWith {};
-				sleep CACHE_MONITOR_DELAY;
 			};
-			if (_cache select 1) then {
-				if (_obj isKindOf "Man") then { // Unit
-					[_obj, (_cache select 2), (_cache select 3)] call UCD_fnc_cacheUnit;
-				} else { // Vehicle
-					[_obj, (_cache select 2), (_cache select 3)] call UCD_fnc_cacheVehicle;
-				};
+			sleep CACHE_MONITOR_DELAY;
+		};
+		if (_cache select 1) then {
+			if (_obj isKindOf "Man") then { // Unit
+				[_obj, (_cache select 2), (_cache select 3)] call UCD_fnc_cacheUnit;
+			} else { // Vehicle
+				[_obj, (_cache select 2), (_cache select 3)] call UCD_fnc_cacheVehicle;
 			};
 		};
 	};
