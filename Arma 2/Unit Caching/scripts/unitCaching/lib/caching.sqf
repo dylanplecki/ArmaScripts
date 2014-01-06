@@ -177,7 +177,8 @@ UCD_fnc_cacheable = {
 	CHECK_THIS;
 	private ["_obj", "_cacheable"];
 	_obj = _this select 0;
-	_cacheable = ["", false, false, -1];
+	#define CACHEABLE_DFT ["", false, false, -1]
+	_cacheable = CACHEABLE_DFT;
 	if (!(isNil "_obj") && {!isNull _obj} && {local _obj} && {alive _obj} && {!(isPlayer _obj)} && {_obj getVariable ["cacheObject", true]}) then {
 		{ // forEach
 			if (_obj isKindOf (_x select 0)) exitWith {
@@ -206,19 +207,20 @@ UCD_fnc_cacheObject = {
 		[(group _obj)] call UCD_fnc_cacheGroup;
 		if (!isDedicated) then {waitUntil {!isNull player}}; // To avoid deletion of player unit
 		private ["_cache"];
-		while {true} do { // Only way to break loop is through exitWith
-			if (_obj != (leader _obj)) then {
-				_cache = [_obj] call UCD_fnc_cacheable;
-				if (!(_cache select 1)) exitWith {};
-				private ["_minDis"];
-				_minDis = [_obj] call UCD_fnc_closestPlayerDis;
-				if ((_minDis) > (_minDis call (_cache select 3))) exitWith {};
-			};
+		_cache = CACHEABLE_DFT;
+		while {!(isNull _obj) && {local _obj} && {alive _obj}} do {
+			_cache = [_obj] call UCD_fnc_cacheable;
+			if (!(_cache select 1)) exitWith {};
+			private ["_minDis"];
+			_minDis = [_obj] call UCD_fnc_closestPlayerDis;
+			if ((_minDis) > (_minDis call (_cache select 3))) exitWith {};
 			sleep CACHE_MONITOR_DELAY;
 		};
 		if (_cache select 1) then {
 			if (_obj isKindOf "Man") then { // Unit
-				[_obj, (_cache select 2), (_cache select 3)] call UCD_fnc_cacheUnit;
+				if (_obj != (leader _obj)) then { // Avoid caching of leader
+					[_obj, (_cache select 2), (_cache select 3)] call UCD_fnc_cacheUnit;
+				};
 			} else { // Vehicle
 				[_obj, (_cache select 2), (_cache select 3)] call UCD_fnc_cacheVehicle;
 			};

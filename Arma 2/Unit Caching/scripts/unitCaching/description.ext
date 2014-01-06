@@ -1,20 +1,14 @@
 
 class Extended_PreInit_EventHandlers
 {
-	class ucd
-	{
-		//init = "call compile preProcessFileLineNumbers 'scripts\unitCaching\init.sqf'"; // For testing, allows recompile
-		init = "call ('scripts\unitCaching\init.sqf' call SLX_XEH_COMPILE)";
-	};
+	//UCD_pre_init = "call compile preProcessFileLineNumbers 'scripts\unitCaching\init.sqf'"; // For testing, allows recompile
+	UCD_pre_init = "call ('scripts\unitCaching\init.sqf' call SLX_XEH_COMPILE)";
 };
 
 class Extended_Init_EventHandlers
 {
     class AllVehicles
     {
-		class ucd
-		{
-			init = "_this spawn UCD_fnc_cacheObject;";
-		};
+		UCD_veh_init = "_this spawn UCD_fnc_cacheObject";
     };
 };
