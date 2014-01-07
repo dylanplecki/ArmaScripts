@@ -198,6 +198,11 @@ UCD_fnc_cacheGroup = {
 	};
 };
 
+/*
+	Function 'UCD_fnc_cacheObject' needs refractoring for optimal effects,
+	currently exits cache check loop for volatile reasons that may become
+	accessible after time - ie. exit if leader, although this may change.
+*/
 UCD_fnc_cacheObject = {
 	CHECK_THIS;
 	private ["_obj"];
