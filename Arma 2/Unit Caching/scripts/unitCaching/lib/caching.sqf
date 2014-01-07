@@ -283,8 +283,12 @@ UCD_fnc_cacheMonitor = {
 		/* Reset group variable to currently cached objects */
 		_group setVariable ["UCD_cachedObjects", _cachedObjects];
 		/* Unfortunate fix for fleeing units due to caching */
-		if (fleeing (leader _group) && {(count _cachedObjects) > 0}) then {
-			_group allowFleeing 0;
+		if ((count _cachedObjects) > 0) then {
+			{ // forEach
+				if (fleeing _x) exitWith {
+					_group allowFleeing 0;
+				};
+			} forEach (units _group);
 		};
 		/* Checking AI distribution methods */
 		if (isServer && {!isNil "UCD_distributeAI"} && {!isNil "UCD_headlessClients"} && // Distribution library is present and working
