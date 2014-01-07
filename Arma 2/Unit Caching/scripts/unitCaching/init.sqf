@@ -1,7 +1,7 @@
 /*
 	Title: Unit Caching and Distribution Script
 	Author: Dylan Plecki (Naught)
-	Version: 1.0.1.7
+	Version: 1.0.2.1
 	
 	Description:
 		An SQF script designed to dynamically cache and distribute AI units
