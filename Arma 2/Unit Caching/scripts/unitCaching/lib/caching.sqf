@@ -209,7 +209,7 @@ UCD_fnc_cacheObject = {
 			if ((_cacheStats select 1) && // Allowed to cache in config
 				{_obj getVariable ["cacheObject", true]} && // Not marked for no caching
 				{!(_obj isKindOf "Man") || {_obj != (leader _obj)}} && // Either a vehicle or not the leader of the group
-				{([_obj] call UCD_fnc_closestPlayerDis) > (call (_cache select 3))} // Farther away from players than the specified min distance
+				{([_obj] call UCD_fnc_closestPlayerDis) > (call (_cacheStats select 3))} // Farther away from players than the specified min distance
 			) exitWith {_cache = true}; // Then start caching
 			uisleep CACHE_MONITOR_DELAY;
 		};
@@ -255,7 +255,8 @@ UCD_fnc_cacheMonitor = {
 	CHECK_THIS;
 	private ["_group"];
 	_group = _this select 0;
-	uisleep 1; // Allow group members to load and cache
+	_group allowFleeing 0; // Unfortunate fix for fleeing units due to caching
+	uisleep 1; // Allow group members to load and cache if needed
 	waitUntil {!isNil "UCD_serverInit"}; // Wait for server init to process
 	while {!(isNil "_group") && {!isNull _group} && {(count (units _group)) >= 0} && {!isNil {_group getVariable ["UCD_monitorScript", nil]}}} do {
 		/* Recheck all cached and non-cached objects for changes */
@@ -263,6 +264,7 @@ UCD_fnc_cacheMonitor = {
 		_cachedObjects = _group getVariable ["UCD_cachedObjects", []];
 		_nonCachedObjects = [];
 		if ((count _cachedObjects) > 0) then {
+			/* Check each cached object */
 			private ["_minDis"];
 			_minDis = [leader _group] call UCD_fnc_closestPlayerDis;
 			if (_minDis >= 0) then {
@@ -282,14 +284,6 @@ UCD_fnc_cacheMonitor = {
 		} forEach _nonCachedObjects;
 		/* Reset group variable to currently cached objects */
 		_group setVariable ["UCD_cachedObjects", _cachedObjects];
-		/* Unfortunate fix for fleeing units due to caching */
-		if ((count _cachedObjects) > 0) then {
-			{ // forEach
-				if (fleeing _x) exitWith {
-					_group allowFleeing 0;
-				};
-			} forEach (units _group);
-		};
 		/* Checking AI distribution methods */
 		if (isServer && {!isNil "UCD_distributeAI"} && {!isNil "UCD_headlessClients"} && // Distribution library is present and working
 			{UCD_distributeAI && {(count UCD_headlessClients) > 0} && {local (leader _group)}} // HC distribution is present and allowed
