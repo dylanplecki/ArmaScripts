@@ -62,7 +62,6 @@ CLASS_EXTENDS("UCD_obj_cachedAsset","UCD_obj_cachedObject")
 		["insert", ["position", (getPos _obj)]] call _prop;
 		["insert", ["spawnDis", _spawnDis]] call _prop;
 		["insert", ["spawnPos", _savePos]] call _prop;
-		["insert", ["position", (getPos _obj)]] call _prop;
 		["insert", ["vectorDir", (vectorDir _obj)]] call _prop;
 		["insert", ["vectorUp", (vectorUp _obj)]] call _prop;
 		["insert", ["velocity", (velocity _obj)]] call _prop;
@@ -113,7 +112,7 @@ CLASS_EXTENDS("UCD_obj_cachedAsset","UCD_obj_cachedObject")
 				_pos,
 				[],
 				100,
-				"FORM"
+				"NONE" // Switched from "FORM" due to positional discrepencies
 			];
 			_obj setSkill (["get", ["skill", 0.5]] call _prop);
 			_obj setRank (["get", ["rank", "PRIVATE"]] call _prop);

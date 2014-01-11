@@ -18,27 +18,17 @@ UCD_fnc_sendGroup = {
 	_group = _this select 0;
 	_mID = _this select 1;
 	if (!(isNil "_group") && {!isNull _group} && {(count (units _group)) > 0}) then {
-		private ["_cachedObjects", "_vehs", "_leader"];
+		private ["_cachedObjects", "_leader"];
 		if (!isNil {_group getVariable ["UCD_monitorScript", nil]}) then {
-			//terminate [_group] spawn UCD_fnc_cacheMonitor;
 			_group setVariable ["UCD_monitorScript", nil];
 		};
 		_cachedObjects = +(_group getVariable ["UCD_cachedObjects", []]);
 		_group setVariable ["UCD_cachedObjects", []];
-		_vehs = [];
 		{ // forEach
 			if (!(isNil "_x") && {!isNull _x} && {alive _x} && {_x != (leader _group)}) then {
-				if (((vehicle _x) != _x) && {!(vehicle _x in _vehs)}) then {
-					_vehs = _vehs + [vehicle _x];
-				};
 				_cachedObjects set [(count _cachedObjects), (["new", [_x, true, {-1}]] call UCD_obj_cachedAsset)];
 			};
 		} forEach (units _group);
-		{ // forEach
-			if (!(isNil "_x") && {!isNull _x} && {alive _x}) then {
-				_cachedObjects set [(count _cachedObjects), (["new", [_x, true, {-1}]] call UCD_obj_cachedAsset)];
-			};
-		} forEach _vehs;
 		{ // forEach
 			if (typeName(_x) == "CODE") then {
 				_cachedObjects set [_forEachIndex, (["copy"] call _x)];
@@ -73,7 +63,7 @@ UCD_fnc_spawnTransferObj = {
 	_cacheObj = _this select 1;
 	_prevPos = _this select 2;
 	_obj = objNull;
-	if (((-1) call (["get", ["spawnDis", {-1}]] call _cacheObj)) < 0) then {
+	if ((call (["get", ["spawnDis", {-1}]] call _cacheObj)) < 0) then {
 		_obj = ["spawn", _prevPos] call _cacheObj;
 		["delete", _cacheObj] call UCD_obj_cachedAsset;
 	} else {
@@ -84,31 +74,21 @@ UCD_fnc_spawnTransferObj = {
 
 UCD_fnc_receiveGroup = {
 	CHECK_THIS;
-	private ["_var", "_val", "_group", "_leader", "_cachedObjects", "_cachedUnits", "_leaderObj", "_prevPos", "_grpLeader"];
+	private ["_var", "_val", "_group", "_leader", "_cachedObjects", "_leaderObj", "_prevPos"];
 	_var = _this select 0;
 	_val = +(_this select 1);
 	_group = _val select 0;
 	_leader = _val select 1;
 	_cachedObjects = _val select 2;
-	_cachedUnits = [];
 	_leaderObj = [_leader] call UCD_fnc_copyCachedObj;
 	_prevPos = ["get", ["position", [0,0,0]]] call _leaderObj;
+	_group selectLeader ([_group, _leaderObj, _prevPos] call UCD_fnc_spawnTransferObj);
 	{ // forEach
 		if (typeName(_x) == "ARRAY") then {
-			private ["_cacheObj"];
-			_cacheObj = [_x] call UCD_fnc_copyCachedObj;
-			if (["get", ["isVehicle", false]] call _cacheObj) then {
-				[_group, _cacheObj, _prevPos] call UCD_fnc_spawnTransferObj;
-			} else {
-				_cachedUnits set [(count _cachedUnits), _cacheObj];
-			};
+			[_group, ([_x] call UCD_fnc_copyCachedObj), _prevPos] call UCD_fnc_spawnTransferObj;
 		};
 	} forEach _cachedObjects;
-	_grpLeader = [_group, _leaderObj, _prevPos] call UCD_fnc_spawnTransferObj;
-	_group selectLeader _grpLeader;
-	{ // forEach
-		[_group, _x, _prevPos] call UCD_fnc_spawnTransferObj;
-	} forEach _cachedUnits;
+	/* Note: Group cache monitor loads on units' spawns automatically */
 };
 
 UCD_fnc_receiveHC = {
