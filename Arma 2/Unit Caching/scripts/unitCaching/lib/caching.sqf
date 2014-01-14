@@ -165,6 +165,8 @@ CLASS_EXTENDS("UCD_obj_cachedAsset","UCD_obj_cachedObject")
 		if (_varName != "") then {
 			_obj setVehicleVarName _varName;
 			missionNamespace setVariable [_varName, _obj];
+			UCD_setVehicleVarNameRemote = [_obj, _varName];
+			publicVariable "UCD_setVehicleVarNameRemote";
 			publicVariable _varName;
 		};
 		if (["get", ["spawnPos", false]] call _prop) then {
@@ -296,9 +298,21 @@ UCD_fnc_cacheMonitor = {
 	_group setVariable ["UCD_monitorScript", nil];
 };
 
+UCD_fnc_setVehicleVarName = {
+	CHECK_THIS;
+	private ["_val", "_veh", "_varName"];
+	_val = if (typeName(_this select 0) == "STRING") then {_this select 1} else {_this}; // Differentiate between normal and PVEH call
+	_veh = _val select 0;
+	_varName = _val select 1;
+	_veh setVehicleVarName _varName;
+	// Global variable value is publicVariable'd in prior code to conform with JIPs
+};
+
 /*
 	Group: Initialization Code
 */
+
+"UCD_setVehicleVarNameRemote" addPublicVariableEventHandler UCD_fnc_setVehicleVarName;
 
 if (isServer) then {
 	UCD_spawnUnitInit = CACHE_UNIT_SPAWN_FNC;
