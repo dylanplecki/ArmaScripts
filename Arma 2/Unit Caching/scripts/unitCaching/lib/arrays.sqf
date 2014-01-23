@@ -90,7 +90,7 @@ UCD_fnc_heapSort = {
 	_array
 };
 
-CORE_fnc_shellSort = {
+UCD_fnc_shellSort = {
 	CHECK_THIS;
 	private ["_list", "_selectSortValue", "_n", "_cols", "_j", "_k", "_h", "_t", "_i"];
 	_list = +(_this select 0);
