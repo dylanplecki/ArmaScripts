@@ -286,7 +286,8 @@ UCD_fnc_cacheMonitor = {
 		/* Reset group variable to currently cached objects */
 		_group setVariable ["UCD_cachedObjects", _cachedObjects];
 		/* Checking AI distribution methods */
-		if (isServer && {!isNil "UCD_distributeAI"} && {!isNil "UCD_headlessClients"} && // Distribution library is present and working
+		if (isServer && {_group getVariable ["UCD_distributeGroup", true]} && // Machine is server and distribution is enabled for group
+			{!isNil "UCD_distributeAI"} && {!isNil "UCD_headlessClients"} && // Distribution library is present and working
 			{UCD_distributeAI && {(count UCD_headlessClients) > 0} && {local (leader _group)}} // HC distribution is present and allowed
 		) exitWith { // Stop current execution and transfer
 			private ["_hc"];
