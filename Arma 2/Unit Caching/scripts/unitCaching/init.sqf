@@ -1,7 +1,7 @@
 /*
 	Title: Unit Caching and Distribution Script
 	Author: Dylan Plecki (Naught)
-	Version: 1.0.2.5
+	Version: 1.0.2.8
 	
 	Description:
 		An SQF script designed to dynamically cache and distribute AI units
@@ -27,8 +27,8 @@
 	Group: Definitons
 */
 
-// Don't change this!
 UCD_init = false;
+UCD_A3 = isClass(configFile >> "CfgPatches" >> "A3_UI_F");
 
 #include "config.sqf"
 

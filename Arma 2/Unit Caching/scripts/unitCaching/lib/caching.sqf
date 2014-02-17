@@ -81,6 +81,10 @@ CLASS_EXTENDS("UCD_obj_cachedAsset","UCD_obj_cachedObject")
 			if ((vehicle _obj) != _obj) then {
 				["insert", ["vehicle", (vehicle _obj)]] call _prop;
 				["insert", ["unitVehPos", (_obj call UCD_fnc_unitVehPos)]] call _prop;
+				[_obj] allowGetIn false;
+				UnAssignVehicle _obj;
+				_obj action ["EJECT", (vehicle _obj)];
+				doGetOut _obj;
 			};
 			if (CHECK_MOD("ace")) then {
 				["insert", ["ruckWeps", [_obj] call ACE_fnc_RuckWeaponsList]] call _prop;
@@ -93,6 +97,7 @@ CLASS_EXTENDS("UCD_obj_cachedAsset","UCD_obj_cachedObject")
 			["insert", ["magazineCargo", (getMagazineCargo _obj)]] call _prop;
 		};
 		MEMBER("properties",_prop);
+		waitUntil {(vehicle _obj) == _obj};
 		deleteVehicle _obj;
 	};
 	PUBLIC FUNCTION("","spawn") {
@@ -136,17 +141,45 @@ CLASS_EXTENDS("UCD_obj_cachedAsset","UCD_obj_cachedObject")
 				_obj setVariable ["ACE_weapononback", (["get", ["wob", ""]] call _prop), true];
 			};
 			private ["_veh"];
-			_veh = ["get", "vehicle"] call _prop;
-			if (!isNil "_veh" && {!isNull _veh} && {alive _veh}) then {
+			_veh = ["get", ["vehicle", objNull]] call _prop;
+			if (!(isNull _veh) && {alive _veh}) then {
 				private ["_unitVehPos"];
-				_unitVehPos = ["get", ["unitVehPos", [""]]] call _prop;
+				_unitVehPos = ["get", ["unitVehPos", ["", []]]] call _prop;
 				switch (_unitVehPos select 0) do {
-					case "Commander": {_obj moveInCommander _veh};
-					case "Gunner": {_obj moveInGunner _veh};
-					case "Driver": {_obj moveInDriver _veh};
-					case "Turret": {_obj moveInTurret [_veh, (_unitVehPos select 1)]};
-					case "Cargo": {_obj moveInCargo _veh};
+					case "Commander": {
+						//_obj action ["GetInCommander", _veh];
+						_obj moveInCommander _veh;
+						//_obj assignAsCommander _veh;
+					};
+					case "Gunner": {
+						//_obj action ["GetInGunner", _veh];
+						_obj moveInGunner _veh;
+						//_obj assignAsGunner _veh;
+					};
+					case "Driver": {
+						//_obj action ["GetInDriver", _veh];
+						_obj moveInDriver _veh;
+						//_obj assignAsDriver _veh;
+					};
+					case "Turret": {
+						//_obj action ["GetInTurret", _veh, (_unitVehPos select 1)];
+						_obj moveInTurret [_veh, (_unitVehPos select 1)];
+						/*
+						#ifdef RVE_4_ADV_ENABLED
+							_obj assignAsTurret [_veh, (_unitVehPos select 1)]; // Arma 3 only
+						#else
+							_obj assignAsCargo _veh; // Workaround for Arma 2?
+						#endif
+						*/
+					};
+					default {
+						//_obj action ["GetInCargo", _veh];
+						_obj moveInCargo _veh;
+						//_obj assignAsCargo _veh;
+					};
 				};
+				//[_obj] allowGetIn true;
+				//[_obj] orderGetIn true;
 			};
 		} else { // Vehicle
 			_obj = (["get", "type"] call _prop) createVehicle _pos;

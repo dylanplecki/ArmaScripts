@@ -74,7 +74,7 @@ UCD_fnc_unitVehPos = {
 		
 	Examples:
 		(begin example)
-			_vehpos = player call ACE_fnc_unitvehpos
+			_vehpos = player call UCD_fnc_unitvehpos;
 		(end)
 		
 	Author:
@@ -111,7 +111,7 @@ UCD_fnc_unitVehPos = {
 	_ptp = [];
 	{if (_u == _v turretUnit _x) exitwith {_ptp = _x}} foreach _tp;
 	if (count _ptp > 0) then {
-		_res = ["Turret",_ptp];
+		_res = ["Turret", _ptp];
 	} else {
 		_res = switch (true) do { // redundant for safety
 			case (_u == commander _v): {["Commander"]};
