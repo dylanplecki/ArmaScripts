@@ -28,18 +28,19 @@ UCD_fnc_getPos = {
 	Group: Player Functions
 */
 
-UCD_fnc_closestPlayerDis = {
+UCD_fnc_closestActiveDistance = {
 	CHECK_THIS;
-	private ["_ref", "_minDis"];
+	private ["_ref", "_side", "_minDis"];
 	_ref = [_this select 0] call UCD_fnc_getPos;
+	_side = side(_this select 0);
 	_minDis = -1;
 	{ // forEach
 		private ["_dis"];
 		_dis = _x distance _ref;
-		if ((_dis < _minDis) || {_minDis < 0}) then {
+		if (((isPlayer _x) || {(_side getFriend (side _x)) < 0.6}) && {(_dis < _minDis) || {_minDis < 0}}) then {
 			_minDis = _dis;
 		};
-	} forEach (call CBA_fnc_players);
+	} forEach allUnits;
 	_minDis
 };
 

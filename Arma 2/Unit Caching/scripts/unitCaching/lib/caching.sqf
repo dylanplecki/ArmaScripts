@@ -243,7 +243,7 @@ UCD_fnc_cacheObject = {
 			if ((_cacheStats select 1) && // Allowed to cache in config
 				{_obj getVariable ["cacheObject", true]} && // Not marked for no caching
 				{!(_obj isKindOf "Man") || {_obj != (leader _obj)}} && // Either a vehicle or not the leader of the group
-				{([_obj] call UCD_fnc_closestPlayerDis) > (call (_cacheStats select 3))} // Farther away from players than the specified min distance
+				{([_obj] call UCD_fnc_closestActiveDistance) > (call (_cacheStats select 3))} // Farther away from players than the specified min distance
 			) exitWith {_cache = true}; // Then start caching
 			uisleep CACHE_MONITOR_DELAY;
 		};
@@ -300,7 +300,7 @@ UCD_fnc_cacheMonitor = {
 		if ((count _cachedObjects) > 0) then {
 			/* Check each cached object */
 			private ["_minDis"];
-			_minDis = [leader _group] call UCD_fnc_closestPlayerDis;
+			_minDis = [leader _group] call UCD_fnc_closestActiveDistance;
 			if (_minDis >= 0) then {
 				{ // forEach
 					if ((call (["get", ["spawnDis", 0]] call _x)) >= _minDis) then {
